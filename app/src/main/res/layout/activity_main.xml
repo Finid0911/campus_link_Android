@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="fill_parent"
+        android:layout_width="400dp"
         android:layout_height="300dp"
         android:background="@drawable/border_img"
         android:orientation="vertical"
@@ -28,6 +28,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="List of accounts"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="Last records"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -116,7 +118,7 @@
                     android:id="@+id/showMoreBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/pastel_dark_blue"
+                    android:background="@drawable/border_img"
                     android:text="Show more"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -134,9 +136,10 @@
         android:layout_marginBottom="10dp"
         android:clickable="true"
         android:contentDescription="@string/faNewTransaction"
+        app:backgroundTint="@color/pastel_indigo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/plus" />
 </androidx.constraintlayout.widget.ConstraintLayout>
