@@ -17,25 +17,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_dialog" />
+            android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/checkbox_on_background" />
+            <ImageView
+                android:id="@+id/confirmImgView"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/check1" />
+
+            <ImageView
+                android:id="@+id/exitImgView"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/reject" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="416dp"
+        android:layout_width="match_parent"
         android:layout_height="330dp"
-        android:background="@color/material_dynamic_neutral50"
+        android:background="@color/pastel_green"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +68,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/section_income"
+                android:paddingTop="8dp"
                 android:text="Income"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
@@ -63,8 +81,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/section_expense"
+                android:paddingTop="8dp"
                 android:text="Expense"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="32sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -77,14 +97,15 @@
                 android:id="@+id/txtDong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="64dp"
                 android:layout_weight="1"
                 android:text="đ"
                 android:textAlignment="center"
-                android:textSize="48sp"
+                android:textColor="@color/black"
+                android:textSize="54sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.578"
+                app:layout_constraintHorizontal_bias="0.642"
                 app:layout_constraintStart_toEndOf="@+id/editTextPhone2"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,14 +113,15 @@
                 android:id="@+id/txtSyntax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="64dp"
                 android:layout_weight="1"
                 android:text="+"
                 android:textAlignment="center"
-                android:textSize="48sp"
+                android:textColor="@color/black"
+                android:textSize="54sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/editTextPhone2"
-                app:layout_constraintHorizontal_bias="0.372"
+                app:layout_constraintHorizontal_bias="0.368"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,7 +151,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/pastel_mint"
                 android:orientation="vertical">
 
                 <TextView
@@ -137,8 +158,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/img_top_right"
+                    android:paddingRight="20dp"
                     android:text="Account"
                     android:textAlignment="center"
+                    android:textColor="@color/material_dynamic_neutral20"
                     android:textSize="20sp" />
 
                 <TextView
@@ -146,8 +170,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:background="@drawable/img_bottom_right"
+                    android:paddingRight="20dp"
                     android:text="Bank"
                     android:textAlignment="center"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -169,7 +196,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/pastel_mint"
                 android:orientation="vertical">
 
                 <TextView
@@ -177,8 +203,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="29dp"
                     android:layout_weight="1"
+                    android:background="@drawable/img_top_left"
+                    android:paddingLeft="20dp"
                     android:text="Category"
                     android:textAlignment="center"
+                    android:textColor="@color/material_dynamic_neutral20"
                     android:textSize="20sp" />
 
                 <TextView
@@ -186,8 +215,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:background="@drawable/img_bottom_left"
+                    android:paddingLeft="20dp"
                     android:text="Shopping"
                     android:textAlignment="center"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
