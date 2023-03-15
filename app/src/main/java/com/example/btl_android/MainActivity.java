@@ -11,13 +11,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static ArrayList<Account> AccountList;
-    private accountAdapter accAdapter;
+    public  ArrayList<Account> AccountList;
+    private AccountAdapter accAdapter;
     private Button addAcc, showMore;
     private ListView lstAcc;
     private FloatingActionButton addTransaction;
@@ -36,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
         AccountList = new ArrayList<>();
         AccountList.add(new Account(1, "Bank", 1000000f));
 
-        accAdapter = new accountAdapter(AccountList, this);
+        accAdapter = new AccountAdapter(AccountList, this);
         lstAcc.setAdapter(accAdapter);
         registerForContextMenu(lstAcc);
 
+        //
         lstAcc.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int i, long id) {
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // add new account
         addAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,13 +60,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //add new transaction
         addTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TransactionActivity.class);
+                Gson gson = new Gson();
+                String jsonAccount = gson.toJson(AccountList);
+                intent.putExtra("list", jsonAccount);
                 startActivityForResult(intent, 200);
             }
         });
+
+        //Send data to List Account Activity
+        Intent intentListAcc = new Intent(MainActivity.this, AccListActivity.class);
+        Bundle bd = new Bundle();
+        //intentListAcc.putExtra("listData", AccountList);
+        //bd.putSerializable("listData", (Serializable) AccountList);
+        //intentListAcc.putExtra("bundle", ArrayList<Account>);
+        //startActivity(intentListAcc);
+
     }
 
     @Override

@@ -1,6 +1,11 @@
 package com.example.btl_android;
 
-public class Account {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Account implements Parcelable {
 
     private int id;
     private String account_name;
@@ -36,4 +41,15 @@ public class Account {
         this.money = money;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(account_name);
+        dest.writeFloat(money);
+    }
 }

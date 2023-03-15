@@ -6,17 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
-public class accountAdapter extends BaseAdapter {
+public class CategoryAdapter extends BaseAdapter {
 
-    private ArrayList<Account> data;
+    private ArrayList<Catergory> data;
     private Activity context;
     private LayoutInflater inflater;
 
-    public accountAdapter(ArrayList<Account> data, Activity act) {
+    public CategoryAdapter(ArrayList<Catergory> data, Activity act) {
         this.data = data;
         this.context = act;
         this.inflater = (LayoutInflater)act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -41,12 +43,13 @@ public class accountAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = view;
         if(v == null){
-            v = inflater.inflate(R.layout.account_item, null);
+            v = inflater.inflate(R.layout.category_item, null);
         }
-        TextView tvAccName = v.findViewById(R.id.txtAccName);
-        tvAccName.setText(data.get(i).getAccount_name());
-        TextView tvAccMoney = v.findViewById(R.id.txtAccMoney);
-        tvAccMoney.setText(String.valueOf(data.get(i).getMoney()));
+        ImageView imgBack = v.findViewById(R.id.imgBackground);
+        ImageView imgIcon = v.findViewById(R.id.imgIcon);
+        TextView tvCategory = v.findViewById(R.id.txtCategoryName);
+        tvCategory.setText(data.get(i).getCatergoryName());
         return v;
     }
+
 }
