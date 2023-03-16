@@ -24,7 +24,7 @@ public class AccListActivity extends AppCompatActivity {
     public static ArrayList<Account> AccountList;
     private AccountAdapter accAdapter;
     int selectedID;
-    MainActivity ac;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +33,13 @@ public class AccListActivity extends AppCompatActivity {
         backImg = findViewById(R.id.backBtn);
         accList = findViewById(R.id.lstCategory);
 
+        // Get data of Account from Transaction Activity
         AccountList = new ArrayList<>();
-        String Acccount = getIntent().getStringExtra("list1");
+        String accData = getIntent().getStringExtra("list1");
         Gson gson = new Gson();
         Type type = new TypeToken<List<Account>>(){}.getType();
-        AccountList = gson.fromJson(Acccount, type);
+        AccountList = gson.fromJson(accData, type);
+        // test
         for(Account ac: AccountList){
             System.out.println(ac.getAccount_name());
         }
@@ -57,7 +59,6 @@ public class AccListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 selectedID = i;
-                Account c;
             }
         });
 

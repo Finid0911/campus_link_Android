@@ -55,7 +55,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/edtAccName"
+                android:id="@+id/edtCateName"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -78,12 +78,12 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:text="Category name:"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.064"
+                app:layout_constraintHorizontal_bias="0.09"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,7 +98,54 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.058"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtAccName" />
+                app:layout_constraintTop_toBottomOf="@+id/edtCateName" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Background:"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtIcon" />
+
+            <EditText
+                android:id="@+id/edtIcon"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/gradient_img"
+                android:ems="10"
+                android:hint="input here"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/material_dynamic_neutral30"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/edtBackground"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/gradient_img"
+                android:ems="10"
+                android:hint="input here"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/material_dynamic_neutral30"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <Button
                 android:id="@+id/addBtn"
@@ -109,7 +156,7 @@
                 android:background="@drawable/btn_add"
                 android:text="Add"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iconSpinner" />
+                app:layout_constraintTop_toBottomOf="@+id/edtBackground" />
 
             <Button
                 android:id="@+id/cancelBtn"
@@ -120,20 +167,8 @@
                 android:background="@drawable/btn_cancel"
                 android:text="Cancel"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iconSpinner" />
+                app:layout_constraintTop_toBottomOf="@+id/edtBackground" />
 
-            <Spinner
-                android:id="@+id/iconSpinner"
-                android:layout_width="370dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/gradient_img"
-                android:contentDescription="@string/Icon"
-                android:minHeight="48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.512"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 

@@ -1,8 +1,12 @@
 package com.example.btl_android;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,9 +21,10 @@ import java.util.List;
 
 public class TransactionActivity extends AppCompatActivity {
 
-    public static List<Account> AccountList;
+    public static ArrayList<Account> AccountList;
     private TextView account, category;
     private ImageView exit, confirm;
+    private EditText moneyInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +35,25 @@ public class TransactionActivity extends AppCompatActivity {
         category = findViewById(R.id.txtCategoryContent);
         exit = findViewById(R.id.exitImgView);
         confirm = findViewById(R.id.confirmImgView);
+        moneyInput = findViewById(R.id.edtMoneyInput);
+        moneyInput.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(moneyInput, InputMethodManager.SHOW_IMPLICIT);
 
-        String Acccount = getIntent().getStringExtra("list");
+        // Get data of Account from Main Activity
+        AccountList = new ArrayList<>();
+        String accData = getIntent().getStringExtra("list");
         Gson gson = new Gson();
         Type type = new TypeToken<List<Account>>(){}.getType();
-        AccountList = gson.fromJson(Acccount, type);
+        AccountList = gson.fromJson(accData, type);
+        // test
         for(Account ac: AccountList){
             System.out.println(ac.getAccount_name());
         }
 
         account.setOnClickListener(v -> {
             Intent intentAcc = new Intent(TransactionActivity.this, AccListActivity.class);
-           /* Bundle bd = new Bundle();
-            bd.putParcelableArrayList("Account",acc);
-            intentAcc.putExtras(bd);*/
+            // Send data of Account to Account List Activity
             Gson gson1 = new Gson();
             String jsonAccount = gson1.toJson(AccountList);
             intentAcc.putExtra("list1", jsonAccount);

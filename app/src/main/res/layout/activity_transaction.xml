@@ -106,7 +106,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.642"
-                app:layout_constraintStart_toEndOf="@+id/editTextPhone2"
+                app:layout_constraintStart_toEndOf="@+id/edtMoneyInput"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -120,13 +120,13 @@
                 android:textColor="@color/black"
                 android:textSize="54sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/editTextPhone2"
+                app:layout_constraintEnd_toStartOf="@+id/edtMoneyInput"
                 app:layout_constraintHorizontal_bias="0.368"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextPhone2"
+                android:id="@+id/edtMoneyInput"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -139,7 +139,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout

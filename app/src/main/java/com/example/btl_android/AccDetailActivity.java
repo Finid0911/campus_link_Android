@@ -47,7 +47,7 @@ public class AccDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acc_detail);
 
-        accName = findViewById(R.id.edtAccName);
+        accName = findViewById(R.id.edtCateName);
         accMoney = findViewById(R.id.edtMoney);
         addBtn = findViewById(R.id.addBtn);
         cancelBtn = findViewById(R.id.cancelBtn);
@@ -60,7 +60,6 @@ public class AccDetailActivity extends AppCompatActivity {
             Float money = Float.valueOf(bundle.getString("AccountMoney"));
             accName.setText(String.valueOf(name));
             accMoney.setText(String.valueOf(money));
-            System.out.println("money hey hey= " + money);
             addBtn.setText("Edit");
         }
         else{

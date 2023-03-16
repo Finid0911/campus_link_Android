@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         addTransaction = findViewById(R.id.faTransaction);
 
         AccountList = new ArrayList<>();
-        AccountList.add(new Account(1, "Bank", 1000000f));
+        AccountList.add(new Account(1, "Bank", 1000000));
+        AccountList.add(new Account(2, "Wallet", 5400000));
 
         accAdapter = new AccountAdapter(AccountList, this);
         lstAcc.setAdapter(accAdapter);
@@ -88,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
         if(data != null){
             Bundle b = data.getExtras();
             int id = b.getInt("Id");
+            System.out.println(id);
             String name = b.getString("AccountName");
             float money = b.getFloat("AccountMoney");
-            System.out.println("money = " + money);
             Account newAccount = new Account(id, name, money);
             if(requestCode == 100 && resultCode == 150){
                 AccountList.add(newAccount);

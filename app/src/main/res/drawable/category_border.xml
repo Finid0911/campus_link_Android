@@ -2,11 +2,11 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="@color/pastel_indigo"></solid>
+            <solid android:color="#333333"></solid>
 <!--
             <corners android:topRightRadius="100dp" android:bottomRightRadius="100dp"></corners>
 -->
-            <corners android:radius="100dp"></corners>
+            <corners android:radius="80dp"></corners>
         </shape>
     </item>
 </selector>
