@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#333335"
-    tools:context=".CategoryDetailActivity">
+    android:background="@color/design_default_color_surface"
+    tools:context=".AddAccountActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/pastel_blue_green"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,9 +24,9 @@
 
             <TextView
                 android:id="@+id/txtTitleAcc"
-                android:layout_width="200dp"
+                android:layout_width="211dp"
                 android:layout_height="36dp"
-                android:text="Add a category"
+                android:text="Add new account"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp"
@@ -45,27 +46,22 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
             <EditText
                 android:id="@+id/edtCateName"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/gradient_img"
+                android:background="@drawable/cate_bg"
                 android:ems="10"
                 android:hint="input here"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
-                android:textAlignment="viewStart"
                 android:textColor="@color/material_dynamic_neutral20"
                 android:textColorHint="@color/material_dynamic_neutral30"
                 android:textSize="24sp"
@@ -78,12 +74,12 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Category name:"
+                android:layout_marginTop="24dp"
+                android:text="Account name:"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.09"
+                app:layout_constraintHorizontal_bias="0.064"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,84 +88,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Icon:"
+                android:text="Amount of money:"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintHorizontal_bias="0.074"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtCateName" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Background:"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtIcon" />
-
             <EditText
-                android:id="@+id/edtIcon"
+                android:id="@+id/edtMoney"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/gradient_img"
+                android:background="@drawable/cate_bg"
                 android:ems="10"
                 android:hint="input here"
-                android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:textColorHint="@color/material_dynamic_neutral30"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.512"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <EditText
-                android:id="@+id/edtBackground"
-                android:layout_width="370dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/gradient_img"
-                android:ems="10"
-                android:hint="input here"
-                android:inputType="textPersonName"
+                android:inputType="number"
+                android:minHeight="48dp"
                 android:paddingLeft="10dp"
                 android:textColorHint="@color/material_dynamic_neutral30"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.39"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <Button
                 android:id="@+id/editBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="64dp"
                 android:background="@drawable/btn_add"
                 android:text="Add"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtBackground" />
+                app:layout_constraintTop_toBottomOf="@+id/edtMoney" />
 
             <Button
                 android:id="@+id/cancelBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="100dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="80dp"
                 android:background="@drawable/btn_cancel"
                 android:text="Cancel"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtBackground" />
-
+                app:layout_constraintTop_toBottomOf="@+id/edtMoney" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

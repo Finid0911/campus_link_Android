@@ -31,7 +31,7 @@ public class TransactionActivity extends AppCompatActivity {
     public TextView account, category;
     private ImageView exit, confirm;
     private EditText moneyInput;
-    private String key, name;
+    private String key, name, cate, money;
     private TextView txtTime;
 
     @Override
@@ -43,14 +43,16 @@ public class TransactionActivity extends AppCompatActivity {
         category = findViewById(R.id.txtCate);
         exit = findViewById(R.id.exitImgView);
         confirm = findViewById(R.id.confirmImgView);
+        moneyInput = findViewById(R.id.edtMoneyInput);
 
         key = getIntent().getStringExtra("key");
         //id = getIntent().getStringExtra("id");
         name = getIntent().getStringExtra("name");
-        //money = getIntent().getStringExtra("money");
+        money = getIntent().getStringExtra("money");
 
         account.setText(String.valueOf(name));
         category.setText(MainActivity.text);
+        cate = MainActivity.text;
 
         Calendar calendar = Calendar.getInstance();
 
@@ -62,7 +64,6 @@ public class TransactionActivity extends AppCompatActivity {
         txtTime = findViewById(R.id.txtTime);
         String currentDate = String.format("%02d/%02d/%d", day, month, year);
         txtTime.setText(currentDate);
-
         txtTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +97,70 @@ public class TransactionActivity extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(moneyInput.getText().toString().length() == 0){
 
+                }
+                else{
+                    Long mm = Long.parseLong(moneyInput.getText().toString());
+                    Transaction transaction = new Transaction();
+                    //transaction.setId(EditId.getText().toString());
+                    transaction.setAccount(name);
+                    transaction.setCategory(cate);
+                    transaction.setMoney(String.valueOf(mm));
+                    transaction.setDate(txtTime.getText().toString());
+                    new FirebaseHelper_Transaction().addData(transaction, new FirebaseHelper_Transaction.DataStatus() {
+                        @Override
+                        public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
+
+                        }
+
+                        @Override
+                        public void DataIsInsert() {
+                            Toast.makeText(TransactionActivity.this, "Add successfully", Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void DataIsUpdate() {
+
+                        }
+
+                        @Override
+                        public void DataIsDeleted() {
+
+                        }
+                    });
+
+                    Account ac = new Account();
+                    Long m = Long.parseLong(money) - mm;
+                    ac.setAccount_name(name);
+                    ac.setMoney(String.valueOf(m));
+                    new FirebaseHelper().editData(key, ac, new FirebaseHelper.DataStatus() {
+                        @Override
+                        public void DataIsLoaded(List<Account> accounts, List<String> keys) {
+
+                        }
+
+                        @Override
+                        public void DataIsInsert() {
+
+                        }
+
+                        @Override
+                        public void DataIsUpdate() {
+                            Toast.makeText(TransactionActivity.this, "Update successfully", Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void DataIsDeleted() {
+
+                        }
+                    });
+                    moneyInput = null;
+                    //setContentView(R.layout.activity_main);
+                    /*finish();
+                    return;*/
+                    finish();
+                }
             }
         });
 

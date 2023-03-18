@@ -101,7 +101,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/addBtn"
+                android:id="@+id/editBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="96dp"
@@ -197,11 +197,11 @@
                 </TableLayout>
 
                 <TableLayout
-                    android:id="@+id/transfer"
+                    android:id="@+id/cate6"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="16dp"
-                    android:background="@drawable/transfer_bg"
+                    android:background="@drawable/cate_bg"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/income"
                     app:layout_constraintTop_toTopOf="parent">
@@ -215,7 +215,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="60dp"
                             android:padding="2dp"
-                            app:srcCompat="@drawable/transfer" />
+                            android:paddingTop="4dp"
+                            app:srcCompat="@drawable/fuel" />
                     </TableRow>
 
                     <TableRow
@@ -223,10 +224,10 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/transferTxt"
+                            android:id="@+id/fuelTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Transfer"
+                            android:text="Fuel"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -241,7 +242,7 @@
                     android:layout_marginStart="16dp"
                     android:background="@drawable/cate_bg"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/transfer"
+                    app:layout_constraintStart_toEndOf="@+id/cate6"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TableRow
@@ -326,7 +327,7 @@
                     android:id="@+id/cate1"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_marginStart="18dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/cate_bg"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -337,12 +338,10 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imageView6"
+                            android:id="@+id/imageView1"
                             android:layout_width="wrap_content"
                             android:layout_height="60dp"
-                            android:padding="3dp"
-                            tools:srcCompat="@drawable/bag" />
-
+                            app:srcCompat="@drawable/bag" />
                     </TableRow>
 
                     <TableRow
@@ -519,8 +518,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="@drawable/acc_border"
-                android:paddingLeft="15dp"
-                android:paddingTop="10dp"
+                android:paddingTop="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,7 @@ public class AccListActivity extends AppCompatActivity {
     int selectedID;*/
 
     private RecyclerView lstAccount;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class AccListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_acc_list);
 
         lstAccount = findViewById(R.id.rvListAccount);
+        back = findViewById(R.id.backBtn);
 
         new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
             @Override
@@ -55,6 +59,13 @@ public class AccListActivity extends AppCompatActivity {
             @Override
             public void DataIsDeleted() {
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

@@ -7,19 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class Recycle {
+public class Recycle2 {
     private Context mcontext;
-    private AccountAdapter accountAdapter;
+    private Recycle2.AccountAdapter accountAdapter;
 
     public void setConfig(RecyclerView recyclerView, Context context, List<Account> accounts, List<String> keys){
         mcontext = context;
-        accountAdapter = new AccountAdapter(accounts, keys);
+        accountAdapter = new Recycle2.AccountAdapter(accounts, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(accountAdapter);
         accountAdapter.notifyDataSetChanged();
@@ -31,23 +30,21 @@ public class Recycle {
         private String key;
 
         public AccountItemView(ViewGroup parent) {
-            super(LayoutInflater.from(mcontext).inflate(R.layout.account_item, parent, false));
+            super(LayoutInflater.from(mcontext).inflate(R.layout.account_main_item, parent, false));
             tName = (TextView) itemView.findViewById(R.id.txtAccName);
             tMoney = (TextView) itemView.findViewById(R.id.txtAccMoney);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(mcontext, TransactionActivity.class);
+                    Intent intent = new Intent(mcontext, DetailAccount.class);
                     intent.putExtra("key", key);
                     //intent.putExtra("id", tId.getText().toString());
                     intent.putExtra("name", tName.getText().toString());
                     intent.putExtra("money", tMoney.getText().toString());
-
                     mcontext.startActivity(intent);
                 }
             });
-
         }
         public void bind(Account account, String key){
             tName.setText(account.getName());
@@ -59,7 +56,7 @@ public class Recycle {
 
     }
 
-    class AccountAdapter extends RecyclerView.Adapter<AccountItemView>{
+    class AccountAdapter extends RecyclerView.Adapter<Recycle2.AccountItemView>{
         private List<Account> accList;
         private List<String> keys;
 
@@ -68,12 +65,12 @@ public class Recycle {
             this.keys = keys;
         }
         @Override
-        public AccountItemView onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new AccountItemView(parent);
+        public Recycle2.AccountItemView onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new Recycle2.AccountItemView(parent);
         }
 
         @Override
-        public void onBindViewHolder(AccountItemView holder, int position) {
+        public void onBindViewHolder(Recycle2.AccountItemView holder, int position) {
             holder.bind(accList.get(position), keys.get(position));
         }
 

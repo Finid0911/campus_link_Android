@@ -17,6 +17,7 @@ public class FirebaseHelper_Transaction {
     private FirebaseDatabase firebaseDatabase;
     private List<Transaction> transactions = new ArrayList<>();
 
+
     public FirebaseHelper_Transaction(){
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Transaction");
@@ -78,4 +79,5 @@ public class FirebaseHelper_Transaction {
                     }
                 });
     }
+
 }

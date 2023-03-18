@@ -22,7 +22,7 @@ public class CategoryDetailActivity extends AppCompatActivity {
         name = findViewById(R.id.edtCateName);
         icon = findViewById(R.id.edtIcon);
         background = findViewById(R.id.edtBackground);
-        add = findViewById(R.id.addBtn);
+        add = findViewById(R.id.editBtn);
         cancel = findViewById(R.id.cancelBtn);
 
         Intent intent = getIntent();
