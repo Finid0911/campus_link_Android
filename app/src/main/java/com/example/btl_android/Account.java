@@ -1,55 +1,38 @@
 package com.example.btl_android;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+public class Account {
 
-import androidx.annotation.NonNull;
+    private String id;
+    private String name;
+    private String money;
 
-public class Account implements Parcelable {
+    public Account() {
 
-    private int id;
-    private String account_name;
-    private float money;
-
-    public Account(int id, String account_name, float money) {
-        this.id = id;
-        this.account_name = account_name;
-        this.money = money;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public String getAccount_name() {
-        return account_name;
+    public String getName() {
+        return name;
     }
 
-    public float getMoney() {
+    public String getMoney() {
         return money;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     public void setAccount_name(String account_name) {
-        this.account_name = account_name;
+        this.name = account_name;
     }
 
-    public void setMoney(float money) {
+    public void setMoney(String money) {
         this.money = money;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(account_name);
-        dest.writeFloat(money);
-    }
 }

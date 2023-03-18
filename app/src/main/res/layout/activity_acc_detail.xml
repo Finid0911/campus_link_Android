@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#333335"
+    android:background="@color/design_default_color_surface"
     tools:context=".AccDetailActivity">
 
     <LinearLayout
@@ -57,7 +57,7 @@
                 android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/gradient_img"
+                android:background="@drawable/cate_bg"
                 android:ems="10"
                 android:hint="input here"
                 android:inputType="textPersonName"
@@ -101,7 +101,7 @@
                 android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/gradient_img"
+                android:background="@drawable/cate_bg"
                 android:ems="10"
                 android:hint="input here"
                 android:inputType="number"
@@ -116,23 +116,29 @@
 
             <Button
                 android:id="@+id/addBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="64dp"
                 android:background="@drawable/btn_add"
                 android:text="Add"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtMoney" />
 
             <Button
                 android:id="@+id/cancelBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="64dp"
-                android:layout_marginEnd="100dp"
+                android:layout_marginEnd="80dp"
                 android:background="@drawable/btn_cancel"
                 android:text="Cancel"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtMoney" />
         </androidx.constraintlayout.widget.ConstraintLayout>

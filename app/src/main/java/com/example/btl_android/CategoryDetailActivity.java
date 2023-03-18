@@ -28,7 +28,7 @@ public class CategoryDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle != null){
-            int id = bundle.getInt("Id");
+            int id = bundle.getInt("CateId");
             String cateName = bundle.getString("CateName");
             String cateBG = bundle.getString("Background");
             String cateIcon = bundle.getString("Icon");

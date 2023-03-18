@@ -55,7 +55,7 @@ public class AccDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if (bundle != null) {
-            int id = bundle.getInt("Id");
+            int id = bundle.getInt("AccId");
             String name = bundle.getString("AccountName");
             Float money = Float.valueOf(bundle.getString("AccountMoney"));
             accName.setText(String.valueOf(name));

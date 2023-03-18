@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -19,23 +21,50 @@ import java.util.List;
 
 public class AccListActivity extends AppCompatActivity {
 
-    private ListView accList;
+    /*private ListView accList;
     private ImageView backImg;
     public static ArrayList<Account> AccountList;
     private AccountAdapter accAdapter;
-    int selectedID;
+    int selectedID;*/
+
+    private RecyclerView lstAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acc_list);
 
-        backImg = findViewById(R.id.backBtn);
+        lstAccount = findViewById(R.id.rvListAccount);
+
+        new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<Account> accounts, List<String> keys) {
+                new Recycle().setConfig(lstAccount, AccListActivity.this, accounts, keys);
+            }
+
+            @Override
+            public void DataIsInsert() {
+
+            }
+
+            @Override
+            public void DataIsUpdate() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
+
+        /*backImg = findViewById(R.id.backBtn);
         accList = findViewById(R.id.lstCategory);
 
         // Get data of Account from Transaction Activity
         AccountList = new ArrayList<>();
-        String accData = getIntent().getStringExtra("list1");
+        String accData = getIntent().getStringExtra("list");
         Gson gson = new Gson();
         Type type = new TypeToken<List<Account>>(){}.getType();
         AccountList = gson.fromJson(accData, type);
@@ -59,8 +88,19 @@ public class AccListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 selectedID = i;
+                Account c = AccountList.get(selectedID);
+                Intent intent = new Intent(AccListActivity.this, TransactionActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("AccId", c.getId());
+                b.putString("AccountName", c.getAccount_name());
+                b.putFloat("AccountMoney", c.getMoney());
+                intent.putExtras(b);
+                System.out.println(MainActivity.text);
+                System.out.println(c.getAccount_name());
+                setResult(200);
+                startActivityForResult(intent, 101);
             }
-        });
+        });*/
 
 
     }
