@@ -3,4 +3,6 @@
     <string name="faNewTransaction">floatingActionButton</string>
     <string name="edtMoney">editText</string>
     <string name="Icon">Spinner</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/transactionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/transaction_bg"
+    android:background="@drawable/income_bg_png"
     tools:context=".TransactionActivity">
 
     <LinearLayout
@@ -170,7 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
-                        android:text="Input expense money:"
+                        android:text="Input income:"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold|italic"
@@ -227,7 +226,7 @@
                         android:background="@drawable/transaction_option_btn"
                         android:elevation="10dp"
                         android:text="0"
-                        android:textColor="#8e76fc"
+                        android:textColor="#74e494"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -240,7 +239,7 @@
                         android:background="@drawable/transaction_option_btn"
                         android:elevation="10dp"
                         android:text="00"
-                        android:textColor="#8e76fc"
+                        android:textColor="#74e494"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -253,7 +252,7 @@
                         android:background="@drawable/transaction_option_btn"
                         android:elevation="10dp"
                         android:text="000"
-                        android:textColor="#8e76fc"
+                        android:textColor="#74e494"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -274,7 +273,7 @@
                         android:background="@drawable/transaction_option_btn"
                         android:elevation="10dp"
                         android:text="0000"
-                        android:textColor="#8e76fc"
+                        android:textColor="#74e494"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -287,7 +286,7 @@
                         android:background="@drawable/transaction_option_btn"
                         android:elevation="10dp"
                         android:text="00000"
-                        android:textColor="#8e76fc"
+                        android:textColor="#74e494"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -300,7 +299,7 @@
                         android:background="@drawable/transaction_option_btn"
                         android:elevation="10dp"
                         android:text="000000"
-                        android:textColor="#8e76fc"
+                        android:textColor="#74e494"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>

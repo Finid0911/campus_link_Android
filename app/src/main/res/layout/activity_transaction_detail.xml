@@ -40,7 +40,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="490dp"
+        android:layout_height="600dp"
         android:background="@drawable/bottom_border"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,8 +91,8 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Icon:"
+                android:layout_marginTop="15dp"
+                android:text="Account"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,16 +105,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Background:"
+                android:text="Money"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.058"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtIcon" />
+                app:layout_constraintTop_toBottomOf="@+id/edtAccount" />
 
             <EditText
-                android:id="@+id/edtIcon"
+                android:id="@+id/edtAccount"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -131,7 +131,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <EditText
-                android:id="@+id/edtBackground"
+                android:id="@+id/edtMoneyIn"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -147,27 +147,54 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+            <EditText
+                android:id="@+id/edtDate"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="112dp"
+                android:background="@drawable/gradient_img"
+                android:ems="10"
+                android:hint="input here"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/material_dynamic_neutral30"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.463"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
             <Button
-                android:id="@+id/editBtn"
+                android:id="@+id/delBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginStart="92dp"
+                android:layout_marginTop="152dp"
                 android:background="@drawable/btn_add"
-                android:text="Add"
+                android:text="Delete"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtBackground" />
+                app:layout_constraintTop_toBottomOf="@+id/edtMoneyIn" />
 
             <Button
                 android:id="@+id/cancelBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="100dp"
+                android:layout_marginTop="152dp"
+                android:layout_marginEnd="96dp"
                 android:background="@drawable/btn_cancel"
                 android:text="Cancel"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtBackground" />
+                app:layout_constraintTop_toBottomOf="@+id/edtMoneyIn" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="Date:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtMoneyIn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

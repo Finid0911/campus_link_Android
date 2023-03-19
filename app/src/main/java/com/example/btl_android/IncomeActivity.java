@@ -1,8 +1,9 @@
 package com.example.btl_android;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,12 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.btl_android.basicClass.Account;
 import com.example.btl_android.basicClass.Transaction;
@@ -23,30 +20,21 @@ import com.example.btl_android.firebaseHelper.FirebaseHelper;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 import com.example.btl_android.fragment.HomeFragment;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class TransactionActivity extends AppCompatActivity {
+public class IncomeActivity extends AppCompatActivity {
 
-    public static ArrayList<Account> AccountList;
     public TextView account, category, txtTime;
     private EditText moneyInput;
     private String key, name, cate, money;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btnConirm;
-    private ConstraintLayout backBtn, transactionLayout;
+    private ConstraintLayout backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transaction);
-
-        /*if(HomeFragment.check == true){
-            transactionLayout.setBackground(getDrawable(R.drawable.income_bg_png));
-        }
-        else{
-            transactionLayout.setBackground(getDrawable(R.drawable.transaction_bg));
-        }*/
+        setContentView(R.layout.activity_income);
 
         account = findViewById(R.id.txtAcc);
         category = findViewById(R.id.txtCate);
@@ -54,7 +42,6 @@ public class TransactionActivity extends AppCompatActivity {
         moneyInput = findViewById(R.id.edtMoneyInput);
         btnConirm = findViewById(R.id.btnConfirm);
         backBtn = findViewById(R.id.backLayout);
-        transactionLayout = findViewById(R.id.transactionLayout);
 
         key = getIntent().getStringExtra("key");
         //id = getIntent().getStringExtra("id");
@@ -90,7 +77,7 @@ public class TransactionActivity extends AppCompatActivity {
                 int year = calendar.get(Calendar.YEAR);
                 int month = calendar.get(Calendar.MONTH);
                 int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(TransactionActivity.this,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(IncomeActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -104,7 +91,6 @@ public class TransactionActivity extends AppCompatActivity {
             }
         });
 
-
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,7 +102,7 @@ public class TransactionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(moneyInput.getText().toString().length() == 0){
-                    Toast.makeText(TransactionActivity.this, "Không đươc để trống", Toast.LENGTH_LONG).show();
+                    Toast.makeText(IncomeActivity.this, "Không đươc để trống", Toast.LENGTH_LONG).show();
                 }
                 else{
                     Long mm = Long.parseLong(moneyInput.getText().toString());
@@ -126,7 +112,7 @@ public class TransactionActivity extends AppCompatActivity {
                     transaction.setCategory(cate);
                     transaction.setMoney(String.valueOf(mm));
                     transaction.setDate(txtTime.getText().toString());
-                    new FirebaseHelper_Transaction().addData(transaction, new FirebaseHelper_Transaction.DataStatus() {
+                    new FirebaseHelper_Transaction().addData2(transaction, new FirebaseHelper_Transaction.DataStatus() {
                         @Override
                         public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
 
@@ -134,7 +120,7 @@ public class TransactionActivity extends AppCompatActivity {
 
                         @Override
                         public void DataIsInsert() {
-                            Toast.makeText(TransactionActivity.this, "Add successfully", Toast.LENGTH_LONG).show();
+                            Toast.makeText(IncomeActivity.this, "Add successfully", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
@@ -149,10 +135,9 @@ public class TransactionActivity extends AppCompatActivity {
                     });
 
                     Account ac = new Account();
-                    Long m = Long.parseLong(money) - mm;
+                    Long m = Long.parseLong(money) + mm;
                     ac.setAccount_name(name);
                     ac.setMoney(String.valueOf(m));
-
                     new FirebaseHelper().editData(key, ac, new FirebaseHelper.DataStatus() {
                         @Override
                         public void DataIsLoaded(List<Account> accounts, List<String> keys) {
@@ -166,7 +151,7 @@ public class TransactionActivity extends AppCompatActivity {
 
                         @Override
                         public void DataIsUpdate() {
-                            Toast.makeText(TransactionActivity.this, "Update successfully", Toast.LENGTH_LONG).show();
+                            Toast.makeText(IncomeActivity.this, "Update successfully", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
@@ -249,5 +234,4 @@ public class TransactionActivity extends AppCompatActivity {
             }
         });
     }
-
 }

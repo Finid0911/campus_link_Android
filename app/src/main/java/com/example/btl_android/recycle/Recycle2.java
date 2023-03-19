@@ -1,4 +1,4 @@
-package com.example.btl_android;
+package com.example.btl_android.recycle;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.btl_android.basicClass.Account;
+import com.example.btl_android.DetailAccount;
+import com.example.btl_android.R;
 
 import java.util.List;
 

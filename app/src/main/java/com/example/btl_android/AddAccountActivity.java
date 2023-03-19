@@ -8,6 +8,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.btl_android.basicClass.Account;
+import com.example.btl_android.firebaseHelper.FirebaseHelper;
+
 import java.util.List;
 
 public class AddAccountActivity extends AppCompatActivity {
@@ -38,7 +41,7 @@ public class AddAccountActivity extends AppCompatActivity {
 
         accName = findViewById(R.id.edtCateName);
         accMoney = findViewById(R.id.edtMoney);
-        addBtn = findViewById(R.id.editBtn);
+        addBtn = findViewById(R.id.delBtn);
         cancelBtn = findViewById(R.id.cancelBtn);
 
 

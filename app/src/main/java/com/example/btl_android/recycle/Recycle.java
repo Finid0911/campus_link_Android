@@ -1,4 +1,4 @@
-package com.example.btl_android;
+package com.example.btl_android.recycle;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,9 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.btl_android.IncomeActivity;
+import com.example.btl_android.basicClass.Account;
+import com.example.btl_android.R;
+import com.example.btl_android.TransactionActivity;
+import com.example.btl_android.fragment.HomeFragment;
 
 import java.util.List;
 
@@ -38,13 +43,23 @@ public class Recycle {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(mcontext, TransactionActivity.class);
-                    intent.putExtra("key", key);
-                    //intent.putExtra("id", tId.getText().toString());
-                    intent.putExtra("name", tName.getText().toString());
-                    intent.putExtra("money", tMoney.getText().toString());
+                    if(HomeFragment.check == true){
+                        Intent intent = new Intent(mcontext, IncomeActivity.class);
+                        intent.putExtra("key", key);
+                        //intent.putExtra("id", tId.getText().toString());
+                        intent.putExtra("name", tName.getText().toString());
+                        intent.putExtra("money", tMoney.getText().toString());
+                        mcontext.startActivity(intent);
+                    }
+                    else{
+                        Intent intent = new Intent(mcontext, TransactionActivity.class);
+                        intent.putExtra("key", key);
+                        //intent.putExtra("id", tId.getText().toString());
+                        intent.putExtra("name", tName.getText().toString());
+                        intent.putExtra("money", tMoney.getText().toString());
+                        mcontext.startActivity(intent);
+                    }
 
-                    mcontext.startActivity(intent);
                 }
             });
 

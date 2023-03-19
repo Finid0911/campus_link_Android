@@ -17,12 +17,12 @@ public class CategoryDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_detail);
+        setContentView(R.layout.activity_transaction_detail);
 
         name = findViewById(R.id.edtCateName);
-        icon = findViewById(R.id.edtIcon);
-        background = findViewById(R.id.edtBackground);
-        add = findViewById(R.id.editBtn);
+        icon = findViewById(R.id.edtAccount);
+        background = findViewById(R.id.edtMoneyIn);
+        add = findViewById(R.id.delBtn);
         cancel = findViewById(R.id.cancelBtn);
 
         Intent intent = getIntent();

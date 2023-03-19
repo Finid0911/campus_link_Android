@@ -1,6 +1,5 @@
 package com.example.btl_android;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -9,11 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.btl_android.basicClass.Account;
+import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.firebaseHelper.FirebaseHelper;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -22,10 +21,6 @@ public class DetailAccount extends AppCompatActivity {
     private EditText accName, accMoney;
     private Button editBtn, cancelBtn, deleteBtn;
     private String name, money, key;
-    public FirebaseDatabase firebaseDatabase;
-    public DatabaseReference databaseReference;
-    private String khoa, ten;
-    private Transaction t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +29,7 @@ public class DetailAccount extends AppCompatActivity {
 
         accName = findViewById(R.id.edtCateName);
         accMoney = findViewById(R.id.edtMoney);
-        editBtn = findViewById(R.id.editBtn);
+        editBtn = findViewById(R.id.delBtn);
         cancelBtn = findViewById(R.id.cancelBtn);
         deleteBtn = findViewById(R.id.deleteBtn);
 

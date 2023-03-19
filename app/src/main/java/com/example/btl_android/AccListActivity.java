@@ -1,24 +1,16 @@
 package com.example.btl_android;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.example.btl_android.basicClass.Account;
+import com.example.btl_android.firebaseHelper.FirebaseHelper;
+import com.example.btl_android.recycle.Recycle;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AccListActivity extends AppCompatActivity {

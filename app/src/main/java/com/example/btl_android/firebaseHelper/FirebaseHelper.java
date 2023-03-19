@@ -1,6 +1,8 @@
-package com.example.btl_android;
+package com.example.btl_android.firebaseHelper;
+
 import androidx.annotation.NonNull;
 
+import com.example.btl_android.basicClass.Account;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -11,20 +13,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirebaseHelper_Transaction {
-
+public class FirebaseHelper {
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
-    private List<Transaction> transactions = new ArrayList<>();
+    private List<Account> accounts = new ArrayList<>();
 
-
-    public FirebaseHelper_Transaction(){
+    public FirebaseHelper(){
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Transaction");
+        databaseReference = firebaseDatabase.getReference("Account");
     }
 
     public interface DataStatus{
-        void DataIsLoaded(List<Transaction> transactions, List<String> keys);
+        void DataIsLoaded(List<Account> accounts, List<String> keys);
         void DataIsInsert();
         void DataIsUpdate();
         void DataIsDeleted();
@@ -34,14 +34,14 @@ public class FirebaseHelper_Transaction {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                transactions.clear();
+                accounts.clear();
                 List<String> keys = new ArrayList<>();
                 for (DataSnapshot keyNode: snapshot.getChildren()){
                     keys.add(keyNode.getKey());
-                    Transaction tst = keyNode.getValue(Transaction.class);
-                    transactions.add(tst);
+                    Account account = keyNode.getValue(Account.class);
+                    accounts.add(account);
                 }
-                dataStatus.DataIsLoaded(transactions, keys);
+                dataStatus.DataIsLoaded(accounts, keys);
             }
 
             @Override
@@ -51,9 +51,9 @@ public class FirebaseHelper_Transaction {
         });
     }
 
-    public void addData(Transaction tst, final DataStatus dataStatus){
+    public void addData(Account account, final DataStatus dataStatus){
         String key = databaseReference.push().getKey();
-        databaseReference.child(key).setValue(tst).addOnSuccessListener(new OnSuccessListener<Void>() {
+        databaseReference.child(key).setValue(account).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 dataStatus.DataIsInsert();
@@ -61,8 +61,8 @@ public class FirebaseHelper_Transaction {
         });
     }
 
-    public void editData(String key, Transaction tst, final DataStatus dataStatus){
-        databaseReference.child(key).setValue(tst).addOnSuccessListener(new OnSuccessListener<Void>() {
+    public void editData(String key, Account account, final DataStatus dataStatus){
+        databaseReference.child(key).setValue(account).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 dataStatus.DataIsUpdate();
@@ -79,5 +79,4 @@ public class FirebaseHelper_Transaction {
                     }
                 });
     }
-
 }

@@ -1,7 +1,8 @@
-package com.example.btl_android;
+package com.example.btl_android.recycle;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.btl_android.R;
+import com.example.btl_android.TransactionActivity;
+import com.example.btl_android.TransactionDetail;
+import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.fragment.HomeFragment;
+
+import java.util.Collections;
 import java.util.List;
 
 public class Recycle_Transaction {
@@ -26,12 +34,12 @@ public class Recycle_Transaction {
     }
 
     class TransactionItemView extends RecyclerView.ViewHolder{
+
+        private String key;
         private TextView tCategory;
         private TextView tAccount;
         private TextView tMoney;
         private TextView tDate;
-
-        private String key;
 
         public TransactionItemView(ViewGroup parent) {
             super(LayoutInflater.from(mcontext).inflate(R.layout.transaction_item, parent, false));
@@ -40,18 +48,21 @@ public class Recycle_Transaction {
             tMoney = (TextView) itemView.findViewById(R.id.txtMoney);
             tDate = (TextView) itemView.findViewById(R.id.txtDate);
 
-            /*itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(mcontext, TransactionActivity.class);
+                    Intent intent = new Intent(mcontext, TransactionDetail.class);
                     intent.putExtra("key", key);
                     //intent.putExtra("id", tId.getText().toString());
-                    intent.putExtra("name", tName.getText().toString());
+                    intent.putExtra("name", tAccount.getText().toString());
+                    intent.putExtra("category", tCategory.getText().toString());
                     intent.putExtra("money", tMoney.getText().toString());
+                    intent.putExtra("date", tDate.getText().toString());
 
                     mcontext.startActivity(intent);
                 }
-            });*/
+            });
+
         }
         public void bind(Transaction transaction, String key){
             this.key = key;
