@@ -2,7 +2,6 @@ package com.example.btl_android.recycle;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.btl_android.R;
-import com.example.btl_android.TransactionActivity;
 import com.example.btl_android.TransactionDetail;
-import com.example.btl_android.basicClass.Transaction;
-import com.example.btl_android.fragment.HomeFragment;
+import com.example.btl_android.objectClass.Transaction;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Recycle_Transaction {

@@ -8,11 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.btl_android.basicClass.Account;
-import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.objectClass.Account;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 

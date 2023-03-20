@@ -8,7 +8,7 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.objectClass.Transaction;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 
 import java.util.List;

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.btl_android.R;
-import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.objectClass.Transaction;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 import com.example.btl_android.recycle.Recycle_Income;
 import com.example.btl_android.recycle.Recycle_Transaction;

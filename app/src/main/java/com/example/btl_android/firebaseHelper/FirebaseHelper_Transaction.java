@@ -1,7 +1,7 @@
 package com.example.btl_android.firebaseHelper;
 import androidx.annotation.NonNull;
 
-import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.objectClass.Transaction;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

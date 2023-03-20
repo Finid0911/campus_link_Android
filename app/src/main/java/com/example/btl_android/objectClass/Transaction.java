@@ -1,4 +1,4 @@
-package com.example.btl_android.basicClass;
+package com.example.btl_android.objectClass;
 
 public class Transaction {
 

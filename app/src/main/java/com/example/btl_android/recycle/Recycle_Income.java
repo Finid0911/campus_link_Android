@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.btl_android.R;
-import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.objectClass.Transaction;
 
 import java.util.List;
 

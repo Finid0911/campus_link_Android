@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.btl_android.basicClass.Account;
+import com.example.btl_android.objectClass.Account;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
 import com.example.btl_android.recycle.Recycle;
 

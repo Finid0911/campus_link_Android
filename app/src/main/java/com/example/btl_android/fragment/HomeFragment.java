@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -15,7 +14,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.btl_android.AccListActivity;
-import com.example.btl_android.basicClass.Account;
+import com.example.btl_android.objectClass.Account;
 import com.example.btl_android.AddAccountActivity;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
@@ -23,7 +22,7 @@ import com.example.btl_android.R;
 import com.example.btl_android.recycle.Recycle2;
 import com.example.btl_android.recycle.Recycle_Income;
 import com.example.btl_android.recycle.Recycle_Transaction;
-import com.example.btl_android.basicClass.Transaction;
+import com.example.btl_android.objectClass.Transaction;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class HomeFragment extends Fragment {
     private TextView t1, t2, t3, t4, t5, t6, t7, t8;
     public static String text;
     public static boolean check = false;
-    
+    public static int resourceId;
 
     public HomeFragment() {
         // Required empty public constructor
