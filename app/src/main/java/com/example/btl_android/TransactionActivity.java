@@ -30,6 +30,7 @@ public class TransactionActivity extends AppCompatActivity {
     public TextView account, category, txtTime;
     private EditText moneyInput;
     private String key, name, cate, money;
+    private int imgId;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btnConirm;
     private ConstraintLayout backBtn, transactionLayout;
 
@@ -61,6 +62,7 @@ public class TransactionActivity extends AppCompatActivity {
         account.setText(String.valueOf(name));
         category.setText(HomeFragment.text);
         cate = HomeFragment.text;
+        imgId = HomeFragment.resourceId;
 
         // option button
         btn1 = findViewById(R.id.btn1);
@@ -123,6 +125,7 @@ public class TransactionActivity extends AppCompatActivity {
                     transaction.setCategory(cate);
                     transaction.setMoney(String.valueOf(mm));
                     transaction.setDate(txtTime.getText().toString());
+                    transaction.setImgId(imgId);
                     new FirebaseHelper_Transaction().addData(transaction, new FirebaseHelper_Transaction.DataStatus() {
                         @Override
                         public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {

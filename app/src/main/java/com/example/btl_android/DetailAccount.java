@@ -28,7 +28,7 @@ public class DetailAccount extends AppCompatActivity {
         accMoney = findViewById(R.id.edtMoney);
         editBtn = findViewById(R.id.delBtn);
         cancelBtn = findViewById(R.id.cancelBtn);
-        deleteBtn = findViewById(R.id.deleteBtn);
+        deleteBtn = findViewById(R.id.deleteImg);
 
         key = getIntent().getStringExtra("key");
         name = getIntent().getStringExtra("name");

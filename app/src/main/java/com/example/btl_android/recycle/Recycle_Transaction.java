@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class Recycle_Transaction {
         private TextView tAccount;
         private TextView tMoney;
         private TextView tDate;
+        private ImageView tImg;
 
         public TransactionItemView(ViewGroup parent) {
             super(LayoutInflater.from(mcontext).inflate(R.layout.transaction_item, parent, false));
@@ -43,6 +45,7 @@ public class Recycle_Transaction {
             tAccount = (TextView) itemView.findViewById(R.id.txtAccount);
             tMoney = (TextView) itemView.findViewById(R.id.txtMoney);
             tDate = (TextView) itemView.findViewById(R.id.txtDate);
+            tImg = (ImageView) itemView.findViewById(R.id.img);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -54,6 +57,7 @@ public class Recycle_Transaction {
                     intent.putExtra("category", tCategory.getText().toString());
                     intent.putExtra("money", tMoney.getText().toString());
                     intent.putExtra("date", tDate.getText().toString());
+                    intent.putExtra("imgId", tImg.getDrawable().toString());
 
                     mcontext.startActivity(intent);
                 }
@@ -64,8 +68,9 @@ public class Recycle_Transaction {
             this.key = key;
             tCategory.setText(transaction.getCategory());
             tAccount.setText(transaction.getAccount());
-            tMoney.setText(transaction.getMoney());
+            tMoney.setText(transaction.getMoney() + " đ");
             tDate.setText(transaction.getDate());
+            tImg.setImageResource(transaction.getImgId());
         }
 
     }

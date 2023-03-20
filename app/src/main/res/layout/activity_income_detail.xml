@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/transaction_detail"
-    tools:context=".CategoryDetailActivity">
+    android:background="@drawable/income_detail"
+    tools:context=".IncomeDetail">
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -50,12 +50,12 @@
             android:background="@drawable/transaction_content_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/linearLayout11"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,18 +65,18 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingTop="10dp"
-                    android:text="Transaction Detail"
+                    android:paddingTop="5dp"
+                    android:text="Income Transaction Detail"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="32sp"
+                    android:textSize="32dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout10"
                 android:layout_width="match_parent"
-                android:layout_height="340dp"
+                android:layout_height="320dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

@@ -1,20 +1,19 @@
 package com.example.btl_android;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.btl_android.objectClass.Transaction;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
+import com.example.btl_android.objectClass.Transaction;
 
 import java.util.List;
 
-public class TransactionDetail extends AppCompatActivity {
+public class IncomeDetail extends AppCompatActivity {
 
     private TextView accountTxt, cateTxt, moneyTxt, dateTxt;
     private Button returnBtn;
@@ -22,9 +21,9 @@ public class TransactionDetail extends AppCompatActivity {
     private String account, category, money, date, key;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transaction_detail);
+        setContentView(R.layout.activity_income_detail);
 
         accountTxt = findViewById(R.id.accountTxt);
         cateTxt = findViewById(R.id.categoryTxt);

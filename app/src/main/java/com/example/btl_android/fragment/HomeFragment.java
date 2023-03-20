@@ -204,6 +204,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 check = false;
+                resourceId = R.drawable.shopping_bag;
                 text = t1.getText().toString();
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
                 Gson gson = new Gson();
@@ -219,6 +220,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 check = false;
                 text = t2.getText().toString();
+                resourceId = R.drawable.car;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
                 Gson gson = new Gson();
                 String jsonAccount = gson.toJson(AccountList);
@@ -232,6 +234,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 check = false;
                 text = t3.getText().toString();
+                resourceId = R.drawable.fork;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
                 Gson gson = new Gson();
                 String jsonAccount = gson.toJson(AccountList);
@@ -244,6 +247,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 check = false;
+                resourceId = R.drawable.lightning;
                 text = t4.getText().toString();
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
                 Gson gson = new Gson();
@@ -258,6 +262,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 check = false;
                 text = t5.getText().toString();
+                resourceId = R.drawable.water;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
                 Gson gson = new Gson();
                 String jsonAccount = gson.toJson(AccountList);
@@ -271,6 +276,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 check = false;
                 text = t6.getText().toString();
+                resourceId = R.drawable.fuel;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
                 Gson gson = new Gson();
                 String jsonAccount = gson.toJson(AccountList);
@@ -297,6 +303,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 check = true;
                 text = t8.getText().toString();
+                resourceId = R.drawable.coin;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
                 Gson gson = new Gson();
                 String jsonAccount = gson.toJson(AccountList);
