@@ -1,6 +1,7 @@
 package com.example.btl_android;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,7 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.btl_android.fragment.ViewPagerAdapter;
 import com.example.btl_android.objectClass.Account;
 import com.example.btl_android.objectClass.Transaction;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
@@ -26,7 +29,6 @@ import java.util.List;
 
 public class TransactionActivity extends AppCompatActivity {
 
-    public static ArrayList<Account> AccountList;
     public TextView account, category, txtTime;
     private EditText moneyInput;
     private String key, name, cate, money;
@@ -38,13 +40,6 @@ public class TransactionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
-
-        /*if(HomeFragment.check == true){
-            transactionLayout.setBackground(getDrawable(R.drawable.income_bg_png));
-        }
-        else{
-            transactionLayout.setBackground(getDrawable(R.drawable.transaction_bg));
-        }*/
 
         account = findViewById(R.id.txtAcc);
         category = findViewById(R.id.txtCate);
@@ -175,10 +170,9 @@ public class TransactionActivity extends AppCompatActivity {
                         }
                     });
                     moneyInput = null;
-                    //setContentView(R.layout.activity_main);
-                    /*finish();
-                    return;*/
                     finish();
+                    Intent intent = new Intent(TransactionActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             }
         });

@@ -40,7 +40,7 @@ public class IncomeDetail extends AppCompatActivity {
 
         accountTxt.setText(account);
         cateTxt.setText(category);
-        moneyTxt.setText(money + " đ");
+        moneyTxt.setText(money);
         dateTxt.setText(date);
 
         returnBtn.setOnClickListener(new View.OnClickListener() {
@@ -53,28 +53,6 @@ public class IncomeDetail extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FirebaseHelper_Transaction().deleteData(key, new FirebaseHelper_Transaction.DataStatus() {
-                    @Override
-                    public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
-
-                    }
-
-                    @Override
-                    public void DataIsInsert() {
-
-                    }
-
-                    @Override
-                    public void DataIsUpdate() {
-
-                    }
-
-                    @Override
-                    public void DataIsDeleted() {
-
-                    }
-                });
-
                 new FirebaseHelper_Transaction().deleteData2(key, new FirebaseHelper_Transaction.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
@@ -96,6 +74,8 @@ public class IncomeDetail extends AppCompatActivity {
 
                     }
                 });
+
+                finish();
             }
         });
     }

@@ -41,7 +41,7 @@ public class TransactionDetail extends AppCompatActivity {
 
         accountTxt.setText(account);
         cateTxt.setText(category);
-        moneyTxt.setText(money + " đ");
+        moneyTxt.setText(money);
         dateTxt.setText(date);
 
         returnBtn.setOnClickListener(new View.OnClickListener() {
@@ -76,27 +76,7 @@ public class TransactionDetail extends AppCompatActivity {
                     }
                 });
 
-                new FirebaseHelper_Transaction().deleteData2(key, new FirebaseHelper_Transaction.DataStatus() {
-                    @Override
-                    public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
-
-                    }
-
-                    @Override
-                    public void DataIsInsert() {
-
-                    }
-
-                    @Override
-                    public void DataIsUpdate() {
-
-                    }
-
-                    @Override
-                    public void DataIsDeleted() {
-
-                    }
-                });
+                finish();
             }
         });
     }

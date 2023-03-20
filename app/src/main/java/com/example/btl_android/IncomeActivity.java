@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -163,10 +164,9 @@ public class IncomeActivity extends AppCompatActivity {
                         }
                     });
                     moneyInput = null;
-                    //setContentView(R.layout.activity_main);
-                    /*finish();
-                    return;*/
                     finish();
+                    Intent intent = new Intent(IncomeActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             }
         });
