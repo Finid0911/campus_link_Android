@@ -280,7 +280,7 @@
                     </TableLayout>
 
                     <TableLayout
-                        android:id="@+id/cate5"
+                        android:id="@+id/opt3"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:background="@drawable/cate_bg"
@@ -330,7 +330,7 @@
                     android:layout_height="match_parent">
 
                     <TableLayout
-                        android:id="@+id/cate1"
+                        android:id="@+id/opt1"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginStart="16dp"
@@ -373,7 +373,7 @@
                         android:layout_marginStart="16dp"
                         android:background="@drawable/cate_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/cate1"
+                        app:layout_constraintStart_toEndOf="@+id/opt1"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TableRow

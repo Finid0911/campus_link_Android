@@ -15,6 +15,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.btl_android.AccListActivity;
+import com.example.btl_android.CategoryListActivity;
 import com.example.btl_android.objectClass.Account;
 import com.example.btl_android.AddAccountActivity;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
@@ -63,11 +64,11 @@ public class HomeFragment extends Fragment {
         outcome.setTextColor(Color.WHITE);
 
         //category in main activity
-        cate1 = (TableLayout) view.findViewById(R.id.cate1);
+        cate1 = (TableLayout) view.findViewById(R.id.opt1);
         cate2 = (TableLayout) view.findViewById(R.id.cate2);
         cate3 = (TableLayout) view.findViewById(R.id.cate3);
         cate4 = (TableLayout) view.findViewById(R.id.cate4);
-        cate5 = (TableLayout) view.findViewById(R.id.cate5);
+        cate5 = (TableLayout) view.findViewById(R.id.opt3);
         cate6 = (TableLayout) view.findViewById(R.id.cate6);
         cateMore = (TableLayout) view.findViewById(R.id.cateMore);
         cateIncome = (TableLayout) view.findViewById(R.id.income);
@@ -296,11 +297,12 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 check = false;
                 text = t7.getText().toString();
-                Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
+                Intent intent = new Intent(getActivity(), CategoryListActivity.class);
+                /*Gson gson = new Gson();
                 String jsonAccount = gson.toJson(AccountList);
                 intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);
+                startActivityForResult(intent, 101);*/
+                startActivity(intent);
             }
         });
 
