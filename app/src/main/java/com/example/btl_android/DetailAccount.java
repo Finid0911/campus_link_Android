@@ -1,11 +1,15 @@
 package com.example.btl_android;
 
+import static java.nio.file.Files.delete;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.btl_android.objectClass.Account;
@@ -16,7 +20,8 @@ import java.util.List;
 public class DetailAccount extends AppCompatActivity {
 
     private EditText accName, accMoney;
-    private Button editBtn, cancelBtn, deleteBtn;
+    private Button editBtn, cancelBtn;
+    private ImageView deleteBtn;
     private String name, money, key;
 
     @Override
@@ -80,28 +85,42 @@ public class DetailAccount extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FirebaseHelper().deleteData(key, new FirebaseHelper.DataStatus() {
-                    @Override
-                    public void DataIsLoaded(List<Account> accounts, List<String> keys) {
 
-                    }
+                new AlertDialog.Builder(DetailAccount.this)
+                        .setTitle("Are you sure?")
+                        .setMessage("If you delete, this account will disapear.")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            delete();
+                            dialog.dismiss();
+                        })
+                        .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                        .show();
 
-                    @Override
-                    public void DataIsInsert() {
 
-                    }
+            }
+        });
+    }
 
-                    @Override
-                    public void DataIsUpdate() {
+    private void delete(){
+        new FirebaseHelper().deleteData(key, new FirebaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<Account> accounts, List<String> keys) {
 
-                    }
+            }
 
-                    @Override
-                    public void DataIsDeleted() {
-                        finish();
-                    }
-                });
+            @Override
+            public void DataIsInsert() {
 
+            }
+
+            @Override
+            public void DataIsUpdate() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+                finish();
             }
         });
     }

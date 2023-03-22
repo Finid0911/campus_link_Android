@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_surface"
-    tools:context=".AddAccountActivity">
+    android:background="@drawable/detail_account"
+    tools:context=".DetailAccount">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/pastel_blue_green"
+        android:background="@color/pastel_mint"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
@@ -26,23 +26,37 @@
                 android:id="@+id/txtTitleAcc"
                 android:layout_width="211dp"
                 android:layout_height="36dp"
-                android:text="Add new account"
+                android:text="Edit an account"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/deleteImg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_cancel"
+                android:padding="5dp"
+                android:src="@drawable/recycle_bin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="490dp"
-        android:background="@drawable/bottom_border"
+        android:layout_margin="15dp"
+        android:alpha="0.8"
+        android:background="@drawable/transaction_content_bg"
+        android:elevation="10dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +68,10 @@
 
             <EditText
                 android:id="@+id/edtCateName"
-                android:layout_width="370dp"
+                android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/cate_bg"
+                android:layout_margin="10dp"
+                android:background="@drawable/account_bg"
                 android:ems="10"
                 android:hint="input here"
                 android:inputType="textPersonName"
@@ -74,7 +88,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="32dp"
                 android:text="Account name:"
                 android:textColor="@color/black"
                 android:textSize="24sp"
@@ -87,6 +102,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
                 android:layout_marginTop="24dp"
                 android:text="Amount of money:"
                 android:textColor="@color/black"
@@ -98,12 +114,12 @@
 
             <EditText
                 android:id="@+id/edtMoney"
-                android:layout_width="370dp"
+                android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/cate_bg"
-                android:enabled="false"
+                android:layout_margin="10dp"
+                android:background="@drawable/account_bg"
                 android:ems="10"
+                android:enabled="false"
                 android:hint="input here"
                 android:inputType="number"
                 android:minHeight="48dp"
@@ -143,20 +159,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtMoney" />
 
-            <Button
-                android:id="@+id/deleteImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="161dp"
-                android:layout_marginTop="140dp"
-                android:layout_marginEnd="162dp"
-                android:background="@drawable/border_img"
-                android:text="Delete"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtMoney"
-                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

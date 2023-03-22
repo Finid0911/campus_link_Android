@@ -111,74 +111,73 @@ public class TransactionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(moneyInput.getText().toString().length() == 0){
-                    Toast.makeText(TransactionActivity.this, "Không đươc để trống", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TransactionActivity.this, "Please type in the amount of money", Toast.LENGTH_LONG).show();
                 }
                 else{
                     Long mm = Long.parseLong(moneyInput.getText().toString());
-                    Transaction transaction = new Transaction();
-                    //transaction.setId(EditId.getText().toString());
-                    transaction.setAccount(name);
-                    transaction.setCategory(cate);
-                    transaction.setMoney(String.valueOf(mm));
-                    transaction.setDate(txtTime.getText().toString());
-                    transaction.setImgId(imgId);
-                    new FirebaseHelper_Transaction().addData(transaction, new FirebaseHelper_Transaction.DataStatus() {
-                        @Override
-                        public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
-
-                        }
-
-                        @Override
-                        public void DataIsInsert() {
-                            Toast.makeText(TransactionActivity.this, "Add successfully", Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        public void DataIsUpdate() {
-
-                        }
-
-                        @Override
-                        public void DataIsDeleted() {
-
-                        }
-                    });
-
                     Account ac = new Account();
                     Long m = Long.parseLong(money) - mm;
                     if(m < 0){
                         Toast.makeText(TransactionActivity.this, "Not enough money to carry out the transaction", Toast.LENGTH_LONG).show();
                     }
                     else{
+                        Transaction transaction = new Transaction();
+                        //transaction.setId(EditId.getText().toString());
+                        transaction.setAccount(name);
+                        transaction.setCategory(cate);
+                        transaction.setMoney(String.valueOf(mm));
+                        transaction.setDate(txtTime.getText().toString());
+                        transaction.setImgId(imgId);
+                        new FirebaseHelper_Transaction().addData(transaction, new FirebaseHelper_Transaction.DataStatus() {
+                            @Override
+                            public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
+
+                            }
+
+                            @Override
+                            public void DataIsInsert() {
+                                Toast.makeText(TransactionActivity.this, "Add successfully", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void DataIsUpdate() {
+
+                            }
+
+                            @Override
+                            public void DataIsDeleted() {
+
+                            }
+                        });
+
                         ac.setAccount_name(name);
                         ac.setMoney(String.valueOf(m));
+                        new FirebaseHelper().editData(key, ac, new FirebaseHelper.DataStatus() {
+                            @Override
+                            public void DataIsLoaded(List<Account> accounts, List<String> keys) {
+
+                            }
+
+                            @Override
+                            public void DataIsInsert() {
+
+                            }
+
+                            @Override
+                            public void DataIsUpdate() {
+                                Toast.makeText(TransactionActivity.this, "Update successfully", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void DataIsDeleted() {
+
+                            }
+                        });
+                        moneyInput = null;
+                        finish();
+                        Intent intent = new Intent(TransactionActivity.this, MainActivity.class);
+                        startActivity(intent);
                     }
-
-                    new FirebaseHelper().editData(key, ac, new FirebaseHelper.DataStatus() {
-                        @Override
-                        public void DataIsLoaded(List<Account> accounts, List<String> keys) {
-
-                        }
-
-                        @Override
-                        public void DataIsInsert() {
-
-                        }
-
-                        @Override
-                        public void DataIsUpdate() {
-                            Toast.makeText(TransactionActivity.this, "Update successfully", Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        public void DataIsDeleted() {
-
-                        }
-                    });
-                    moneyInput = null;
-                    finish();
-                    Intent intent = new Intent(TransactionActivity.this, MainActivity.class);
-                    startActivity(intent);
                 }
             }
         });

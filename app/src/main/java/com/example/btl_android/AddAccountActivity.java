@@ -17,22 +17,6 @@ public class AddAccountActivity extends AppCompatActivity {
 
     private EditText accName, accMoney;
     private Button addBtn, cancelBtn;
-    private static int accId = 1;
-    private static String accID = "10";
-
-    /*public int autoSetID(int id){
-        boolean check = false;
-        do{
-            ArrayList<Account> ar = db.select(id);
-            if(ar.size() == 0){
-                check = true;
-            }
-            else{
-                id += 1;
-            }
-        } while(check == false);
-        return id;
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +27,6 @@ public class AddAccountActivity extends AppCompatActivity {
         accMoney = findViewById(R.id.edtMoney);
         addBtn = findViewById(R.id.delBtn);
         cancelBtn = findViewById(R.id.cancelBtn);
-
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
