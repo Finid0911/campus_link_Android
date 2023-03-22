@@ -100,7 +100,7 @@
         <LinearLayout
             android:id="@+id/linearLayout8"
             android:layout_width="match_parent"
-            android:layout_height="800dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/transaction_content_bg"
             android:orientation="vertical"
@@ -112,7 +112,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTransactionHistory"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
