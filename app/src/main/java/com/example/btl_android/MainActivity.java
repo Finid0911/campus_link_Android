@@ -9,12 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.btl_android.fragment.HomeFragment;
 import com.example.btl_android.fragment.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener{
 
     private ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         bottomNavigationView.getMenu().findItem(R.id.mnuUser).setChecked(true);
                         break;
                 }
+
             }
 
             @Override
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
         // sự kiện click vào navbar
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -85,4 +89,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onFragmentInteraction(int position) {
+        viewPager.setCurrentItem(position);
+    }
 }

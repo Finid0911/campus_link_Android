@@ -1,5 +1,6 @@
 package com.example.btl_android.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.btl_android.AccListActivity;
 import com.example.btl_android.CategoryListActivity;
+import com.example.btl_android.MainActivity;
 import com.example.btl_android.objectClass.Account;
 import com.example.btl_android.AddAccountActivity;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
@@ -40,9 +42,27 @@ public class HomeFragment extends Fragment {
     public static String text;
     public static boolean check = false;
     public static int resourceId;
+    public static int checked = 0;
+
+    private OnFragmentInteractionListener mListener;
+
+    public interface OnFragmentInteractionListener {
+        void onFragmentInteraction(int position);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
 
     public HomeFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -128,6 +148,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        /*for(ArrayList<Transaction> t: lstTrans){
+
+        }*/
+
         income.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -203,9 +227,9 @@ public class HomeFragment extends Fragment {
         showMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HistoryFragment historyFragment = new HistoryFragment();
-                //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeFragment, historyFragment).addToBackStack(null).commit();
-                getActivity().getSupportFragmentManager().beginTransaction().attach(historyFragment).commit();
+                if (mListener != null) {
+                    mListener.onFragmentInteraction(1);
+                }
             }
         });
 
@@ -298,5 +322,11 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 }

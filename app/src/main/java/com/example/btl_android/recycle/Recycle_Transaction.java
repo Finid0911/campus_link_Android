@@ -85,6 +85,12 @@ public class Recycle_Transaction {
         private List<Transaction> tempTransactionList;
         private List<String> key;
 
+        private ArrayList<Transaction> trans;
+        public TransactionAdapter(ArrayList<Transaction> list){
+            trans = list;
+        }
+
+
         public TransactionAdapter(List<Transaction> transactionList, List<String> key) {
             this.transactionList = transactionList;
             this.key = key;
