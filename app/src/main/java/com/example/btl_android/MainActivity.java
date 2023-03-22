@@ -11,18 +11,22 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.btl_android.fragment.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
-
+    private FirebaseAuth auth;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
         viewPager = findViewById(R.id.view_pager);
         bottomNavigationView = findViewById(R.id.navbar);
 
@@ -31,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         // sự kiện chuyển page
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
-
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 

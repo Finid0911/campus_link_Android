@@ -76,7 +76,7 @@ public class Recycle_Income {
 
     }
 
-    class TransactionAdapter extends RecyclerView.Adapter<Recycle_Income.TransactionItemView>{
+    public class TransactionAdapter extends RecyclerView.Adapter<Recycle_Income.TransactionItemView>{
 
         private List<Transaction> transactionList;
         private List<String> key;

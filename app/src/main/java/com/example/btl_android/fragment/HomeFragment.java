@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.btl_android.AccListActivity;
 import com.example.btl_android.CategoryListActivity;
@@ -21,11 +22,10 @@ import com.example.btl_android.AddAccountActivity;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 import com.example.btl_android.R;
-import com.example.btl_android.recycle.Recycle2;
+import com.example.btl_android.recycle.Recycle_Account2;
 import com.example.btl_android.recycle.Recycle_Income;
 import com.example.btl_android.recycle.Recycle_Transaction;
 import com.example.btl_android.objectClass.Transaction;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
         new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<Account> accounts, List<String> keys) {
-                new Recycle2().setConfig(lstAcc, getActivity(), accounts, keys);
+                new Recycle_Account2().setConfig(lstAcc, getActivity(), accounts, keys);
             }
 
             @Override
@@ -204,6 +204,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 HistoryFragment historyFragment = new HistoryFragment();
+                //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeFragment, historyFragment).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().attach(historyFragment).commit();
             }
         });
 
@@ -214,10 +216,7 @@ public class HomeFragment extends Fragment {
                 resourceId = R.drawable.shopping_bag;
                 text = t1.getText().toString();
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);
+                startActivity(intent);
             }
         });
 
@@ -229,10 +228,7 @@ public class HomeFragment extends Fragment {
                 text = t2.getText().toString();
                 resourceId = R.drawable.car;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);
+                startActivity(intent);
             }
         });
 
@@ -243,10 +239,7 @@ public class HomeFragment extends Fragment {
                 text = t3.getText().toString();
                 resourceId = R.drawable.fork;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);
+                startActivity(intent);
             }
         });
 
@@ -257,10 +250,7 @@ public class HomeFragment extends Fragment {
                 resourceId = R.drawable.lightning;
                 text = t4.getText().toString();
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);
+                startActivity(intent);
             }
         });
 
@@ -271,10 +261,7 @@ public class HomeFragment extends Fragment {
                 text = t5.getText().toString();
                 resourceId = R.drawable.water;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);
+                startActivity(intent);
             }
         });
 
@@ -285,10 +272,7 @@ public class HomeFragment extends Fragment {
                 text = t6.getText().toString();
                 resourceId = R.drawable.fuel;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);
+                startActivity(intent);
             }
         });
 
@@ -298,10 +282,6 @@ public class HomeFragment extends Fragment {
                 check = false;
                 text = t7.getText().toString();
                 Intent intent = new Intent(getActivity(), CategoryListActivity.class);
-                /*Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 101);*/
                 startActivity(intent);
             }
         });
@@ -313,10 +293,7 @@ public class HomeFragment extends Fragment {
                 text = t8.getText().toString();
                 resourceId = R.drawable.coin;
                 Intent intent = new Intent(getActivity(), AccListActivity.class);
-                Gson gson = new Gson();
-                String jsonAccount = gson.toJson(AccountList);
-                intent.putExtra("list", jsonAccount);
-                startActivityForResult(intent, 102);
+                startActivity(intent);
             }
         });
 

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,11 +18,13 @@ import com.example.btl_android.R;
 import com.example.btl_android.TransactionDetail;
 import com.example.btl_android.objectClass.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Recycle_Transaction {
     private Context mcontext;
-    private Recycle_Transaction.TransactionAdapter transAdapter;
+    public Recycle_Transaction.TransactionAdapter transAdapter;
 
     public void setConfig(RecyclerView recyclerView, Context context, List<Transaction> transactions, List<String> keys){
         mcontext = context;
@@ -75,14 +79,16 @@ public class Recycle_Transaction {
 
     }
 
-    class TransactionAdapter extends RecyclerView.Adapter<TransactionItemView>{
+    class TransactionAdapter extends RecyclerView.Adapter<TransactionItemView> implements Filterable {
 
-        private List<Transaction> transactionList;
+        public List<Transaction> transactionList;
+        private List<Transaction> tempTransactionList;
         private List<String> key;
 
         public TransactionAdapter(List<Transaction> transactionList, List<String> key) {
             this.transactionList = transactionList;
             this.key = key;
+            this.tempTransactionList = transactionList;
         }
 
         @NonNull
@@ -99,6 +105,37 @@ public class Recycle_Transaction {
         @Override
         public int getItemCount() {
             return transactionList.size();
+        }
+
+        @Override
+        public Filter getFilter() {
+            return new Filter() {
+                @Override
+                protected FilterResults performFiltering(CharSequence constraint) {
+                    String search = constraint.toString();
+                    if(search.isEmpty()){
+                        transactionList = tempTransactionList;
+                    }
+                    else{
+                        List<Transaction> list = new ArrayList<>();
+                        for(Transaction t : tempTransactionList){
+                            if(t.getAccount().toLowerCase().contains(search.toLowerCase())){
+                                list.add(t);
+                            }
+                        }
+                        transactionList = list;
+                    }
+                    FilterResults filterResults = new FilterResults();
+                    filterResults.values = transactionList;
+                    return filterResults;
+                }
+
+                @Override
+                protected void publishResults(CharSequence constraint, FilterResults results) {
+                    transactionList = (List<Transaction>) results.values;
+                    notifyDataSetChanged();
+                }
+            };
         }
     }
 }

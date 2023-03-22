@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView6"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingTop="3dp"
-                android:text="Login"
+                android:text="Register"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="32sp"
@@ -113,16 +113,17 @@
         tools:layout_editor_absoluteX="0dp">
 
         <Button
-            android:id="@+id/loginBtn"
+            android:id="@+id/registerBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/account_background"
             android:elevation="20dp"
-            android:text="Login"
+            android:text="Register"
             android:textSize="24sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -139,22 +140,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="or if you don't have an account, press"
+            android:text="or if you already have an account, press"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/registerBtn"
+            android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/account_background"
             android:elevation="20dp"
-            android:text="Register"
+            android:text="Login"
             android:textSize="24sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout

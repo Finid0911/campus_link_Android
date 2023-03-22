@@ -16,13 +16,13 @@ import com.example.btl_android.R;
 
 import java.util.List;
 
-public class Recycle2 {
+public class Recycle_Account2 {
     private Context mcontext;
-    private Recycle2.AccountAdapter accountAdapter;
+    private Recycle_Account2.AccountAdapter accountAdapter;
 
     public void setConfig(RecyclerView recyclerView, Context context, List<Account> accounts, List<String> keys){
         mcontext = context;
-        accountAdapter = new Recycle2.AccountAdapter(accounts, keys);
+        accountAdapter = new Recycle_Account2.AccountAdapter(accounts, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(accountAdapter);
         accountAdapter.notifyDataSetChanged();
@@ -60,7 +60,7 @@ public class Recycle2 {
 
     }
 
-    class AccountAdapter extends RecyclerView.Adapter<Recycle2.AccountItemView>{
+    class AccountAdapter extends RecyclerView.Adapter<Recycle_Account2.AccountItemView>{
         private List<Account> accList;
         private List<String> keys;
 
@@ -69,12 +69,12 @@ public class Recycle2 {
             this.keys = keys;
         }
         @Override
-        public Recycle2.AccountItemView onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new Recycle2.AccountItemView(parent);
+        public Recycle_Account2.AccountItemView onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new Recycle_Account2.AccountItemView(parent);
         }
 
         @Override
-        public void onBindViewHolder(Recycle2.AccountItemView holder, int position) {
+        public void onBindViewHolder(Recycle_Account2.AccountItemView holder, int position) {
             holder.bind(accList.get(position), keys.get(position));
         }
 

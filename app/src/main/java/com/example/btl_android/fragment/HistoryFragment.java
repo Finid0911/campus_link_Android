@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +28,8 @@ public class HistoryFragment extends Fragment {
     private EditText edtSearch;
     private ImageView popup;
     private TextView incomeTxt, expenseTxt;
-    RecyclerView rv;
+    private RecyclerView rv;
+    //private Recycle_Transaction.TransactionAdapter transactionAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,6 +62,24 @@ public class HistoryFragment extends Fragment {
 
             @Override
             public void DataIsDeleted() {
+
+            }
+        });
+
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Recycle_Transaction.TransactionAdapter.getFilter().filter(s.toString());
+                //transactionAdapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });

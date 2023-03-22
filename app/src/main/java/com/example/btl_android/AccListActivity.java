@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.btl_android.objectClass.Account;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
-import com.example.btl_android.recycle.Recycle;
+import com.example.btl_android.recycle.Recycle_Account;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class AccListActivity extends AppCompatActivity {
         new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<Account> accounts, List<String> keys) {
-                new Recycle().setConfig(lstAccount, AccListActivity.this, accounts, keys);
+                new Recycle_Account().setConfig(lstAccount, AccListActivity.this, accounts, keys);
             }
 
             @Override

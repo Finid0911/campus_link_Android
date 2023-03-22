@@ -98,7 +98,7 @@ public class TransactionActivity extends AppCompatActivity {
             }
         });
 
-
+        // Sự kiện quay lại layout trước
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +106,7 @@ public class TransactionActivity extends AppCompatActivity {
             }
         });
 
+        // Sự kiện nhấn nút xác nhận giao dịch
         btnConirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,8 +146,13 @@ public class TransactionActivity extends AppCompatActivity {
 
                     Account ac = new Account();
                     Long m = Long.parseLong(money) - mm;
-                    ac.setAccount_name(name);
-                    ac.setMoney(String.valueOf(m));
+                    if(m < 0){
+                        Toast.makeText(TransactionActivity.this, "Not enough money to carry out the transaction", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        ac.setAccount_name(name);
+                        ac.setMoney(String.valueOf(m));
+                    }
 
                     new FirebaseHelper().editData(key, ac, new FirebaseHelper.DataStatus() {
                         @Override

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +19,7 @@ import com.example.btl_android.fragment.HomeFragment;
 
 import java.util.List;
 
-public class Recycle {
+public class Recycle_Account {
     private Context mcontext;
     private AccountAdapter accountAdapter;
 
@@ -74,7 +75,7 @@ public class Recycle {
 
     }
 
-    class AccountAdapter extends RecyclerView.Adapter<AccountItemView>{
+    class AccountAdapter extends RecyclerView.Adapter<AccountItemView> {
         private List<Account> accList;
         private List<String> keys;
 
@@ -94,7 +95,10 @@ public class Recycle {
 
         @Override
         public int getItemCount() {
-            return accList.size();
+            if(accList != null){
+                return accList.size();
+            }
+            return 0;
         }
     }
 }
