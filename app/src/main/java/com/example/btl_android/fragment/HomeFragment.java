@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,10 +28,17 @@ import com.example.btl_android.AddAccountActivity;
 import com.example.btl_android.firebaseHelper.FirebaseHelper;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 import com.example.btl_android.R;
+import com.example.btl_android.objectClass.User;
 import com.example.btl_android.recycle.Recycle_Account2;
 import com.example.btl_android.recycle.Recycle_Income;
 import com.example.btl_android.recycle.Recycle_Transaction;
 import com.example.btl_android.objectClass.Transaction;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +46,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     public ArrayList<Account> AccountList;
-    private TextView addAcc, showMore, income, outcome;
+    private TextView addAcc, showMore, income, outcome, userName;
     private RecyclerView lstAcc, lstTrans;
     private TableLayout cate1, cate2, cate3, cate4, cate5, cate6, cateMore, cateIncome;
     private TextView t1, t2, t3, t4, t5, t6, t7, t8;
@@ -46,8 +54,9 @@ public class HomeFragment extends Fragment {
     public static boolean check = false;
     public static int resourceId;
     public static int checked = 0;
-
-
+    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = firebaseDatabase.getReference(uid).child("user");
 
     private OnFragmentInteractionListener mListener;
 
@@ -85,8 +94,30 @@ public class HomeFragment extends Fragment {
         lstTrans = (RecyclerView) view.findViewById(R.id.rvTransaction);
         income = (TextView) view.findViewById(R.id.txtIn);
         outcome = (TextView) view.findViewById(R.id.txtOut);
+        userName = (TextView) view.findViewById(R.id.usernameTV);
         outcome.setBackgroundColor(Color.RED);
         outcome.setTextColor(Color.WHITE);
+
+        if(userName.getText() == null){
+            userName.setText("User");
+        }
+        else{
+            databaseReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        DataSnapshot hm = task.getResult();
+                        String name = String.valueOf(hm.child("name").getValue(String.class));
+                        User user1 = new User();
+                        user1.setName(name);
+                        userName.setText(user1.getName());
+                    }
+                    else {
+                        System.out.println("ko co kq");
+                    }
+                }
+            });
+        }
 
         //category in main activity
         cate1 = (TableLayout) view.findViewById(R.id.opt1);

@@ -3,6 +3,7 @@ import androidx.annotation.NonNull;
 
 import com.example.btl_android.objectClass.Transaction;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,9 +21,10 @@ public class FirebaseHelper_Transaction {
 
 
     public FirebaseHelper_Transaction(){
+        String uId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Transaction/out");
-        databaseReference2 = firebaseDatabase.getReference("Transaction/Income");
+        databaseReference = firebaseDatabase.getReference(uId).child("Transaction/out");
+        databaseReference2 = firebaseDatabase.getReference(uId).child("Transaction/Income");
     }
 
     public interface DataStatus{

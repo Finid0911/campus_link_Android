@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.example.btl_android.objectClass.Account;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,8 +20,9 @@ public class FirebaseHelper {
     private List<Account> accounts = new ArrayList<>();
 
     public FirebaseHelper(){
+        String uId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Account");
+        databaseReference = firebaseDatabase.getReference(uId).child("Account");
     }
 
     public interface DataStatus{

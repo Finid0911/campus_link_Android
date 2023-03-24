@@ -74,7 +74,7 @@
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <TextView
-                    android:id="@+id/textView34"
+                    android:id="@+id/namePresent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Username"
@@ -145,7 +145,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/txtUsername"
+                        android:id="@+id/edtUsername"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
