@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.btl_android.R;
 import com.example.btl_android.TransactionDetail;
+import com.example.btl_android.adapter.TransactionAdapter;
 import com.example.btl_android.objectClass.Transaction;
 
 import java.util.ArrayList;
@@ -23,17 +24,24 @@ import java.util.List;
 import java.util.Locale;
 
 public class Recycle_Transaction {
-    private Context mcontext;
-    public Recycle_Transaction.TransactionAdapter transAdapter;
+    public static Context mcontext;
+    public TransactionAdapter transAdapter;
+    public static List<Transaction> expense;
+    public static List<String> ks;
 
     public void setConfig(RecyclerView recyclerView, Context context, List<Transaction> transactions, List<String> keys){
         mcontext = context;
-        transAdapter = new Recycle_Transaction.TransactionAdapter(transactions, keys);
+        transAdapter = new TransactionAdapter(transactions, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(transAdapter);
+        List<Transaction> datalist = transAdapter.getExpense();
+        List<String> k = transAdapter.getKey();
+        expense = datalist;
+        ks = k;
         transAdapter.notifyDataSetChanged();
     }
 
+/*
     class TransactionItemView extends RecyclerView.ViewHolder{
 
         private String key;
@@ -78,7 +86,9 @@ public class Recycle_Transaction {
         }
 
     }
+*/
 
+/*
     class TransactionAdapter extends RecyclerView.Adapter<TransactionItemView> implements Filterable {
 
         public List<Transaction> transactionList;
@@ -144,4 +154,5 @@ public class Recycle_Transaction {
             };
         }
     }
+*/
 }

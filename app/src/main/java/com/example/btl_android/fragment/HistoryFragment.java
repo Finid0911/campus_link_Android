@@ -16,21 +16,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.btl_android.R;
+import com.example.btl_android.adapter.IncomeAdapter;
+import com.example.btl_android.adapter.TransactionAdapter;
 import com.example.btl_android.objectClass.Transaction;
 import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 import com.example.btl_android.recycle.Recycle_Income;
 import com.example.btl_android.recycle.Recycle_Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class HistoryFragment extends Fragment {
 
+    private IncomeAdapter incomeAdapter = new IncomeAdapter();
+    private TransactionAdapter transactionAdapter = new TransactionAdapter();
     private EditText edtSearch;
     private ImageView popup;
     private TextView incomeTxt, expenseTxt;
     private RecyclerView rv;
-    //private Recycle_Transaction.TransactionAdapter transactionAdapter;
-
+    public boolean checked = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
@@ -74,8 +79,12 @@ public class HistoryFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //Recycle_Transaction.TransactionAdapter.getFilter().filter(s.toString());
-                //transactionAdapter.getFilter().filter(s.toString());
+                if(checked == false){
+                    searchExpense(s.toString());
+                }
+                if(checked == true){
+                    searchIncome(s.toString());
+                }
             }
 
             @Override
@@ -91,6 +100,7 @@ public class HistoryFragment extends Fragment {
                 incomeTxt.setTextColor(Color.WHITE);
                 expenseTxt.setBackgroundColor(Color.WHITE);
                 expenseTxt.setTextColor(Color.BLACK);
+                checked = true;
                 new FirebaseHelper_Transaction().readData2(new FirebaseHelper_Transaction.DataStatus() {
 
                     @Override
@@ -123,6 +133,7 @@ public class HistoryFragment extends Fragment {
                 expenseTxt.setTextColor(Color.WHITE);
                 incomeTxt.setBackgroundColor(Color.WHITE);
                 incomeTxt.setTextColor(Color.BLACK);
+                checked = false;
                 new FirebaseHelper_Transaction().readData(new FirebaseHelper_Transaction.DataStatus() {
                     @Override
                     public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
@@ -148,5 +159,37 @@ public class HistoryFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public void searchIncome(String text){
+        ArrayList<Transaction> search = new ArrayList<>();
+        ArrayList<String> searchKey = new ArrayList<>();
+        for(String k : Recycle_Income.ks){
+            searchKey.add(k);
+        }
+        for(Transaction ts : Recycle_Income.income){
+            if(ts.getAccount().toLowerCase().contains(text.toLowerCase())){
+                search.add(ts);
+            }
+        }
+        incomeAdapter.setDataList(search, searchKey);
+        incomeAdapter.notifyDataSetChanged();
+        rv.setAdapter(incomeAdapter);
+    }
+
+    public void searchExpense(String text){
+        ArrayList<Transaction> search = new ArrayList<>();
+        ArrayList<String> searchKey = new ArrayList<>();
+        for(String k : Recycle_Transaction.ks){
+            searchKey.add(k);
+        }
+        for(Transaction ts : Recycle_Transaction.expense){
+            if(ts.getCategory().toLowerCase().contains(text.toLowerCase())){
+                search.add(ts);
+            }
+        }
+        transactionAdapter.setDataList(search, searchKey);
+        transactionAdapter.notifyDataSetChanged();
+        rv.setAdapter(transactionAdapter);
     }
 }

@@ -108,7 +108,6 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/account_bg"
                 android:ems="10"
-                android:enabled="false"
                 android:hint="input here"
                 android:inputType="number"
                 android:minHeight="48dp"

@@ -15,22 +15,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.btl_android.IncomeDetail;
 import com.example.btl_android.R;
 import com.example.btl_android.TransactionDetail;
+import com.example.btl_android.adapter.IncomeAdapter;
 import com.example.btl_android.objectClass.Transaction;
 
 import java.util.List;
 
 public class Recycle_Income {
-    private Context mcontext;
-    private Recycle_Income.TransactionAdapter transAdapter;
+    public static Context mcontext;
+    private IncomeAdapter incomeAdapter;
+    public static List<Transaction> income;
+    public static List<String> ks;
 
     public void setConfig(RecyclerView recyclerView, Context context, List<Transaction> transactions, List<String> keys){
         mcontext = context;
-        transAdapter = new Recycle_Income.TransactionAdapter(transactions, keys);
+        incomeAdapter = new IncomeAdapter(transactions, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(transAdapter);
-        transAdapter.notifyDataSetChanged();
+        recyclerView.setAdapter(incomeAdapter);
+        List<Transaction> datalist = incomeAdapter.getIncome();
+        List<String> k = incomeAdapter.getKey();
+        income = datalist;
+        ks = k;
+        incomeAdapter.notifyDataSetChanged();
     }
 
+/*
     class TransactionItemView extends RecyclerView.ViewHolder{
 
         private String key;
@@ -75,7 +83,9 @@ public class Recycle_Income {
         }
 
     }
+*/
 
+/*
     public class TransactionAdapter extends RecyclerView.Adapter<Recycle_Income.TransactionItemView>{
 
         private List<Transaction> transactionList;
@@ -103,4 +113,5 @@ public class Recycle_Income {
             return transactionList.size();
         }
     }
+*/
 }
