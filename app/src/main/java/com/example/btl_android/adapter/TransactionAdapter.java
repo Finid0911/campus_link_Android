@@ -48,4 +48,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionItemView
         key = khoa;
         notifyDataSetChanged();
     }
+
+    public void setDataList1(ArrayList<Transaction> dataList){
+        transactionList = dataList;
+
+        notifyDataSetChanged();
+    }
 }

@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.btl_android.R;
@@ -23,7 +25,10 @@ import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 import com.example.btl_android.recycle.Recycle_Income;
 import com.example.btl_android.recycle.Recycle_Transaction;
 
+import java.io.Console;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -68,6 +73,50 @@ public class HistoryFragment extends Fragment {
             @Override
             public void DataIsDeleted() {
 
+            }
+        });
+
+        // Popup menu
+        PopupMenu popupMenu = new PopupMenu(getActivity(), popup);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+                if(id == R.id.mnuSort1){
+                    /*Collections.sort(Recycle_Transaction.expense, new Comparator<Transaction>() {
+                        @Override
+                        public int compare(Transaction o1, Transaction o2) {
+                            return Integer.compare(Integer.parseInt(o1.getMoney()), Integer.parseInt(o2.getMoney()));
+                        }
+                    });
+                    ArrayList<Transaction> search = new ArrayList<>();
+                    ArrayList<String> searchKey = new ArrayList<>();
+                    for(String k : Recycle_Transaction.ks){
+                        searchKey.add(k);
+                    }
+                    for(Transaction ts : Recycle_Transaction.expense){
+
+                            search.add(ts);
+
+
+                    }
+                    transactionAdapter.setDataList1(search);
+                    //transactionAdapter.notifyDataSetChanged();
+                    rv.setAdapter(transactionAdapter);*/
+                }
+
+                else if(id == R.id.mnuSort2){
+
+                }
+                return false;
+            }
+        });
+
+        popup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupMenu.show();
             }
         });
 
@@ -194,5 +243,13 @@ public class HistoryFragment extends Fragment {
         transactionAdapter.setDataList(search, searchKey);
         transactionAdapter.notifyDataSetChanged();
         rv.setAdapter(transactionAdapter);
+    }
+    public int ss(int a, int b){
+        if (a>b){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 }

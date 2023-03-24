@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mnuEdit"
-        android:title="Edit Account" />
+        android:id="@+id/mnuSort1"
+        android:title="Sort by money Tang" />
     <item
-        android:id="@+id/mnuLogout"
-        android:title="Log out" />
+        android:id="@+id/mnuSort2"
+        android:title="Sort by money Giam" />
 </menu>
