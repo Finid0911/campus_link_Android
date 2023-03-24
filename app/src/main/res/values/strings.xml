@@ -3,6 +3,10 @@
     <string name="faNewTransaction">floatingActionButton</string>
     <string name="edtMoney">editText</string>
     <string name="Icon">Spinner</string>
+    <string name="channel_name">MyNotification</string>
+    <string name="channel_name_2">MyNotification_2</string>
+    <string name="channel_description">This is a Channel_1</string>
+    <string name="channel_description_2">This is a Channel_2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

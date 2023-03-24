@@ -1,8 +1,11 @@
 package com.example.btl_android.fragment;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -43,6 +46,8 @@ public class HomeFragment extends Fragment {
     public static boolean check = false;
     public static int resourceId;
     public static int checked = 0;
+
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -329,4 +334,5 @@ public class HomeFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 }

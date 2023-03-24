@@ -2,9 +2,14 @@ package com.example.btl_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.NotificationCompat;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -22,6 +27,7 @@ import com.example.btl_android.firebaseHelper.FirebaseHelper_Transaction;
 import com.example.btl_android.fragment.HomeFragment;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class IncomeActivity extends AppCompatActivity {
@@ -32,6 +38,7 @@ public class IncomeActivity extends AppCompatActivity {
     private int imgId;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btnConirm;
     private ConstraintLayout backBtn;
+    public String acc, Money;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,12 +117,14 @@ public class IncomeActivity extends AppCompatActivity {
                 else{
                     Long mm = Long.parseLong(moneyInput.getText().toString());
                     Transaction transaction = new Transaction();
+                    acc = account.getText().toString();
+                    Money = moneyInput.getText().toString();
                     //transaction.setId(EditId.getText().toString());
                     transaction.setAccount(name);
                     transaction.setCategory(cate);
                     transaction.setMoney(String.valueOf(mm));
                     transaction.setDate(txtTime.getText().toString());
-                    transaction.setImgId(imgId);
+                    transaction.setImgId(String.valueOf(imgId));
                     new FirebaseHelper_Transaction().addData2(transaction, new FirebaseHelper_Transaction.DataStatus() {
                         @Override
                         public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
@@ -167,6 +176,7 @@ public class IncomeActivity extends AppCompatActivity {
                     finish();
                     Intent intent = new Intent(IncomeActivity.this, MainActivity.class);
                     startActivity(intent);
+                    addNotification_2();
                 }
             }
         });
@@ -237,4 +247,36 @@ public class IncomeActivity extends AppCompatActivity {
             }
         });
     }
+
+    ////
+
+    private void addNotification_2() {
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this,LoginActivity.CHANNEL_ID_2)
+                        .setSmallIcon(R.drawable.school)
+                        .setLargeIcon(bitmap)
+                        .setColor(getResources().getColor(R.color.pastel_green))
+                        .setContentTitle("Notifications Example") // tieu de
+                        .setContentText("Ban vua thuc hien giao dich. "
+                        )
+                        .setAutoCancel(true);
+
+
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(getNotifyId(), builder.build());
+//        Intent notificationIntent = new Intent(this, TransactionActivity.class);
+//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
+//        builder.setContentIntent(contentIntent);
+
+        // Add as notification
+
+    }
+    private int getNotifyId(){
+        return (int) new Date().getTime();
+    }
+
+
+    ////
 }

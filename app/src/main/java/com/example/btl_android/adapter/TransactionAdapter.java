@@ -18,11 +18,6 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionItemView
     public List<Transaction> transactionList;
     private List<String> key;
 
-    private ArrayList<Transaction> trans;
-    public TransactionAdapter(ArrayList<Transaction> list){
-        trans = list;
-    }
-
     public TransactionAdapter(){}
 
     public TransactionAdapter(List<Transaction> transactionList, List<String> key) {

@@ -1,5 +1,8 @@
 package com.example.btl_android;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +25,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     private FirebaseAuth auth;
     private FirebaseUser user;
 
+    ///
+
+    ////
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
 
         ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(vpAdapter);
+        //
+        //createNotificationChannel();
+        //
 
         // sự kiện chuyển page
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
@@ -93,4 +103,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     public void onFragmentInteraction(int position) {
         viewPager.setCurrentItem(position);
     }
+    /////
+
+
+
+    ////
 }

@@ -95,8 +95,6 @@ public class DetailAccount extends AppCompatActivity {
                         })
                         .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
                         .show();
-
-
             }
         });
     }

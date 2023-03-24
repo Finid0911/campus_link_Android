@@ -187,6 +187,9 @@ public class HistoryFragment extends Fragment {
             if(ts.getCategory().toLowerCase().contains(text.toLowerCase())){
                 search.add(ts);
             }
+            else if(ts.getMoney().contains(text.toString())){
+                search.add(ts);
+            }
         }
         transactionAdapter.setDataList(search, searchKey);
         transactionAdapter.notifyDataSetChanged();

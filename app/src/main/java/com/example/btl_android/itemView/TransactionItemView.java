@@ -56,7 +56,7 @@ public class TransactionItemView extends RecyclerView.ViewHolder{
         tAccount.setText(transaction.getAccount());
         tMoney.setText(transaction.getMoney() + " đ");
         tDate.setText(transaction.getDate());
-        tImg.setImageResource(transaction.getImgId());
+        tImg.setImageResource(Integer.parseInt(transaction.getImgId()));
     }
 
 }

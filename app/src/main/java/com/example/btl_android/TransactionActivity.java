@@ -1,7 +1,13 @@
 package com.example.btl_android;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.btl_android.fragment.ViewPagerAdapter;
@@ -25,6 +32,7 @@ import com.example.btl_android.fragment.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class TransactionActivity extends AppCompatActivity {
@@ -35,6 +43,9 @@ public class TransactionActivity extends AppCompatActivity {
     private int imgId;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btnConirm;
     private ConstraintLayout backBtn, transactionLayout;
+    ///
+    public String nameAcc, tien,loai;
+    ///
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +126,9 @@ public class TransactionActivity extends AppCompatActivity {
                 }
                 else{
                     Long mm = Long.parseLong(moneyInput.getText().toString());
+                    nameAcc = account.getText().toString();
+                    tien = moneyInput.getText().toString();
+                    loai = cate.toString();
                     Account ac = new Account();
                     Long m = Long.parseLong(money) - mm;
                     if(m < 0){
@@ -127,7 +141,7 @@ public class TransactionActivity extends AppCompatActivity {
                         transaction.setCategory(cate);
                         transaction.setMoney(String.valueOf(mm));
                         transaction.setDate(txtTime.getText().toString());
-                        transaction.setImgId(imgId);
+                        transaction.setImgId(String.valueOf(imgId));
                         new FirebaseHelper_Transaction().addData(transaction, new FirebaseHelper_Transaction.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
@@ -177,6 +191,7 @@ public class TransactionActivity extends AppCompatActivity {
                         finish();
                         Intent intent = new Intent(TransactionActivity.this, MainActivity.class);
                         startActivity(intent);
+                        addNotification();
                     }
                 }
             }
@@ -248,5 +263,38 @@ public class TransactionActivity extends AppCompatActivity {
             }
         });
     }
+    ////
+
+    private void addNotification() {
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this,LoginActivity.CHANNEL_ID)
+                        .setSmallIcon(R.drawable.school)
+                        .setLargeIcon(bitmap)
+                        .setSound(uri)
+
+                        .setColor(getResources().getColor(R.color.pastel_red))
+                        .setContentTitle("Notifications Example")
+                        .setContentText("You have just completed the transaction" +
+                                "You have spent " + tien + " from " + nameAcc + " for " + loai)
+                        .setAutoCancel(true);
+
+
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(getNotifyId(), builder.build());
+//        Intent notificationIntent = new Intent(this, TransactionActivity.class);
+//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
+//        builder.setContentIntent(contentIntent);
+
+        // Add as notification
+
+    }
+    private int getNotifyId(){
+        return (int) new Date().getTime();
+    }
+
+    ////
 
 }

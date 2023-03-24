@@ -7,7 +7,7 @@ public class Transaction {
     private String category;
     private String money;
     private String date;
-    private int imgId;
+    private String imgId;
 
     public Transaction() {
 
@@ -33,7 +33,7 @@ public class Transaction {
         return date;
     }
 
-    public int getImgId(){return imgId;}
+    public String getImgId(){return imgId;}
 
     public void setId(String id) {
         this.id = id;
@@ -55,7 +55,7 @@ public class Transaction {
         this.date = date;
     }
 
-    public void setImgId(int imgId){
+    public void setImgId(String imgId){
         this.imgId = imgId;
     }
 }
