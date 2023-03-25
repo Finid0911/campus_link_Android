@@ -43,9 +43,7 @@ public class TransactionActivity extends AppCompatActivity {
     private int imgId;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btnConirm;
     private ConstraintLayout backBtn, transactionLayout;
-    ///
     public String nameAcc, tien,loai;
-    ///
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -263,7 +261,6 @@ public class TransactionActivity extends AppCompatActivity {
             }
         });
     }
-    ////
 
     private void addNotification() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
@@ -273,28 +270,18 @@ public class TransactionActivity extends AppCompatActivity {
                         .setSmallIcon(R.drawable.school)
                         .setLargeIcon(bitmap)
                         .setSound(uri)
-
                         .setColor(getResources().getColor(R.color.pastel_red))
-                        .setContentTitle("Notifications Example")
-                        .setContentText("You have just completed the transaction" +
-                                "You have spent " + tien + " from " + nameAcc + " for " + loai)
+                        .setContentTitle("My Wallet Notification")
+                        .setContentText("You have just completed the transaction. " +
+                                "You have spent " + tien.toUpperCase() + " from " + nameAcc.toUpperCase() + " for " + loai.toUpperCase())
                         .setAutoCancel(true);
-
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(getNotifyId(), builder.build());
-//        Intent notificationIntent = new Intent(this, TransactionActivity.class);
-//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-//                PendingIntent.FLAG_UPDATE_CURRENT);
-//        builder.setContentIntent(contentIntent);
-
-        // Add as notification
 
     }
     private int getNotifyId(){
         return (int) new Date().getTime();
     }
-
-    ////
 
 }

@@ -1,5 +1,6 @@
 package com.example.btl_android;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -53,30 +54,43 @@ public class IncomeDetail extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FirebaseHelper_Transaction().deleteData2(key, new FirebaseHelper_Transaction.DataStatus() {
-                    @Override
-                    public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
 
-                    }
-
-                    @Override
-                    public void DataIsInsert() {
-
-                    }
-
-                    @Override
-                    public void DataIsUpdate() {
-
-                    }
-
-                    @Override
-                    public void DataIsDeleted() {
-
-                    }
-                });
-
-                finish();
+                new AlertDialog.Builder(IncomeDetail.this)
+                        .setTitle("Are you sure?")
+                        .setMessage("If you delete, this transaction will disapear.")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            delete();
+                            dialog.dismiss();
+                        })
+                        .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                        .show();
             }
         });
+    }
+
+    public void delete(){
+        new FirebaseHelper_Transaction().deleteData2(key, new FirebaseHelper_Transaction.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
+
+            }
+
+            @Override
+            public void DataIsInsert() {
+
+            }
+
+            @Override
+            public void DataIsUpdate() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
+        finish();
     }
 }

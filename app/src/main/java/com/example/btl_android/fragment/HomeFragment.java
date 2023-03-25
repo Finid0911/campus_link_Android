@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,10 +47,11 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     public ArrayList<Account> AccountList;
-    private TextView addAcc, showMore, income, outcome, userName;
+    private TextView showMore, income, outcome, userName;
     private RecyclerView lstAcc, lstTrans;
     private TableLayout cate1, cate2, cate3, cate4, cate5, cate6, cateMore, cateIncome;
     private TextView t1, t2, t3, t4, t5, t6, t7, t8;
+    private ImageView addAcc;
     public static String text;
     public static boolean check = false;
     public static int resourceId;
@@ -88,7 +90,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        addAcc = (TextView) view.findViewById(R.id.delBtn);
+        addAcc = (ImageView) view.findViewById(R.id.delBtn);
         showMore = (TextView) view.findViewById(R.id.moreTV);
         lstAcc = (RecyclerView) view.findViewById(R.id.rvAccount);
         lstTrans = (RecyclerView) view.findViewById(R.id.rvTransaction);

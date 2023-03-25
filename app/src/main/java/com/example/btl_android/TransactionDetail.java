@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.btl_android.objectClass.Transaction;
@@ -54,30 +55,43 @@ public class TransactionDetail extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FirebaseHelper_Transaction().deleteData(key, new FirebaseHelper_Transaction.DataStatus() {
-                    @Override
-                    public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
 
-                    }
-
-                    @Override
-                    public void DataIsInsert() {
-
-                    }
-
-                    @Override
-                    public void DataIsUpdate() {
-
-                    }
-
-                    @Override
-                    public void DataIsDeleted() {
-
-                    }
-                });
-
-                finish();
+                new AlertDialog.Builder(TransactionDetail.this)
+                        .setTitle("Are you sure?")
+                        .setMessage("If you delete, this transaction will disapear.")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            delete();
+                            dialog.dismiss();
+                        })
+                        .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                        .show();
             }
         });
+    }
+
+    public void delete(){
+        new FirebaseHelper_Transaction().deleteData(key, new FirebaseHelper_Transaction.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
+
+            }
+
+            @Override
+            public void DataIsInsert() {
+
+            }
+
+            @Override
+            public void DataIsUpdate() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
+        finish();
     }
 }

@@ -112,14 +112,13 @@ public class IncomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(moneyInput.getText().toString().length() == 0){
-                    Toast.makeText(IncomeActivity.this, "Không đươc để trống", Toast.LENGTH_LONG).show();
+                    Toast.makeText(IncomeActivity.this, "Please type in the amount of money", Toast.LENGTH_LONG).show();
                 }
                 else{
                     Long mm = Long.parseLong(moneyInput.getText().toString());
                     Transaction transaction = new Transaction();
                     acc = account.getText().toString();
                     Money = moneyInput.getText().toString();
-                    //transaction.setId(EditId.getText().toString());
                     transaction.setAccount(name);
                     transaction.setCategory(cate);
                     transaction.setMoney(String.valueOf(mm));
@@ -248,8 +247,6 @@ public class IncomeActivity extends AppCompatActivity {
         });
     }
 
-    ////
-
     private void addNotification_2() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
         NotificationCompat.Builder builder =
@@ -257,26 +254,17 @@ public class IncomeActivity extends AppCompatActivity {
                         .setSmallIcon(R.drawable.school)
                         .setLargeIcon(bitmap)
                         .setColor(getResources().getColor(R.color.pastel_green))
-                        .setContentTitle("Notifications Example") // tieu de
-                        .setContentText("Ban vua thuc hien giao dich. "
-                        )
+                        .setContentTitle("My Wallet Notification")
+                        .setContentText("You have just completed the transaction. " +
+                                "You have collected " + Money.toUpperCase() + " for " + acc.toUpperCase())
                         .setAutoCancel(true);
-
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(getNotifyId(), builder.build());
-//        Intent notificationIntent = new Intent(this, TransactionActivity.class);
-//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-//                PendingIntent.FLAG_UPDATE_CURRENT);
-//        builder.setContentIntent(contentIntent);
-
-        // Add as notification
 
     }
     private int getNotifyId(){
         return (int) new Date().getTime();
     }
 
-
-    ////
 }

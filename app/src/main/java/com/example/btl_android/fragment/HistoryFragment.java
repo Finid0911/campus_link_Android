@@ -37,16 +37,15 @@ public class HistoryFragment extends Fragment {
     private IncomeAdapter incomeAdapter = new IncomeAdapter();
     private TransactionAdapter transactionAdapter = new TransactionAdapter();
     private EditText edtSearch;
-    private ImageView popup;
     private TextView incomeTxt, expenseTxt;
     private RecyclerView rv;
     public boolean checked = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
         edtSearch = (EditText) view.findViewById(R.id.edtSearch);
-        popup = (ImageView) view.findViewById(R.id.listPopUp);
         rv = (RecyclerView) view.findViewById(R.id.rvTransactionHistory);
         incomeTxt = (TextView) view.findViewById(R.id.inTxt);
         expenseTxt = (TextView) view.findViewById(R.id.exTxt);
@@ -73,50 +72,6 @@ public class HistoryFragment extends Fragment {
             @Override
             public void DataIsDeleted() {
 
-            }
-        });
-
-        // Popup menu
-        PopupMenu popupMenu = new PopupMenu(getActivity(), popup);
-        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if(id == R.id.mnuSort1){
-                    /*Collections.sort(Recycle_Transaction.expense, new Comparator<Transaction>() {
-                        @Override
-                        public int compare(Transaction o1, Transaction o2) {
-                            return Integer.compare(Integer.parseInt(o1.getMoney()), Integer.parseInt(o2.getMoney()));
-                        }
-                    });
-                    ArrayList<Transaction> search = new ArrayList<>();
-                    ArrayList<String> searchKey = new ArrayList<>();
-                    for(String k : Recycle_Transaction.ks){
-                        searchKey.add(k);
-                    }
-                    for(Transaction ts : Recycle_Transaction.expense){
-
-                            search.add(ts);
-
-
-                    }
-                    transactionAdapter.setDataList1(search);
-                    //transactionAdapter.notifyDataSetChanged();
-                    rv.setAdapter(transactionAdapter);*/
-                }
-
-                else if(id == R.id.mnuSort2){
-
-                }
-                return false;
-            }
-        });
-
-        popup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupMenu.show();
             }
         });
 
@@ -217,7 +172,13 @@ public class HistoryFragment extends Fragment {
             searchKey.add(k);
         }
         for(Transaction ts : Recycle_Income.income){
-            if(ts.getAccount().toLowerCase().contains(text.toLowerCase())){
+            if(ts.getCategory().toLowerCase().contains(text.toLowerCase())){
+                search.add(ts);
+            }
+            else if(ts.getMoney().contains(text.toString())){
+                search.add(ts);
+            }
+            else if(ts.getAccount().toLowerCase().contains(text.toLowerCase())){
                 search.add(ts);
             }
         }
@@ -239,17 +200,13 @@ public class HistoryFragment extends Fragment {
             else if(ts.getMoney().contains(text.toString())){
                 search.add(ts);
             }
+            else if(ts.getAccount().toLowerCase().contains(text.toLowerCase())){
+                search.add(ts);
+            }
         }
         transactionAdapter.setDataList(search, searchKey);
         transactionAdapter.notifyDataSetChanged();
         rv.setAdapter(transactionAdapter);
     }
-    public int ss(int a, int b){
-        if (a>b){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
+
 }

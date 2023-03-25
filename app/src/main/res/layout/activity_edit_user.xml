@@ -9,7 +9,9 @@
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="420dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/account_background"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -51,13 +53,16 @@
                 <EditText
                     android:id="@+id/edtUsername"
                     android:layout_width="250dp"
-                    android:layout_height="48dp"
+                    android:layout_height="45dp"
                     android:layout_marginStart="20dp"
+                    android:background="@drawable/user_item_bg"
+                    android:paddingLeft="5dp"
                     android:text="TextView"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imgName"
-                    app:layout_constraintTop_toBottomOf="@+id/tv1" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv1"
+                    tools:ignore="TouchTargetSizeCheck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
@@ -97,11 +102,12 @@
                 <Spinner
                     android:id="@+id/spinnerGender"
                     android:layout_width="250dp"
-                    android:layout_height="48dp"
+                    android:layout_height="45dp"
                     android:layout_marginStart="20dp"
+                    android:background="@drawable/user_item_bg"
                     app:layout_constraintStart_toEndOf="@+id/imgGender"
                     app:layout_constraintTop_toBottomOf="@+id/textView30"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -142,9 +148,11 @@
                 <TextView
                     android:id="@+id/txtDOB"
                     android:layout_width="250dp"
-                    android:layout_height="40dp"
+                    android:layout_height="45dp"
                     android:layout_marginStart="20dp"
-                    android:paddingTop="5dp"
+                    android:background="@drawable/user_item_bg"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="7dp"
                     android:text="pick a date"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -190,13 +198,17 @@
                 <EditText
                     android:id="@+id/edtPhone"
                     android:layout_width="250dp"
-                    android:layout_height="48dp"
+                    android:layout_height="45dp"
                     android:layout_marginStart="20dp"
+                    android:background="@drawable/user_item_bg"
                     android:ems="10"
                     android:hint="input here"
                     android:inputType="phone"
+                    android:paddingLeft="5dp"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imgPhone"
-                    app:layout_constraintTop_toBottomOf="@+id/textView32" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView32"
+                    tools:ignore="TouchTargetSizeCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -220,7 +232,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="88dp"
                 android:layout_marginTop="40dp"
+                android:background="@drawable/btn_add"
                 android:text="Save"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -230,7 +244,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="88dp"
+                android:background="@drawable/btn_cancel"
                 android:text="Cancel"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

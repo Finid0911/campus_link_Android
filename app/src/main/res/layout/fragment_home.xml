@@ -33,7 +33,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@android:mipmap/sym_def_app_icon" />
+                    app:srcCompat="@drawable/user_main" />
 
                 <TextView
                     android:id="@+id/textView5"
@@ -94,7 +94,7 @@
                     android:id="@+id/textView7"
                     android:layout_width="147dp"
                     android:layout_height="27dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="20dp"
                     android:text="List of Account"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -103,18 +103,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <ImageView
                     android:id="@+id/delBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="96dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Add"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="108dp"
+                    android:layout_marginBottom="6dp"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toTopOf="@+id/rvAccount"
-                    app:layout_constraintStart_toEndOf="@+id/textView7" />
+                    app:layout_constraintStart_toEndOf="@+id/textView7"
+                    app:srcCompat="@drawable/add"
+                    tools:srcCompat="@drawable/add" />
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -124,14 +125,14 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/imageView3"
                     app:layout_constraintTop_toBottomOf="@+id/textView7"
-                    app:layout_constraintVertical_bias="0.189"
+                    app:layout_constraintVertical_bias="0.181"
                     app:srcCompat="@drawable/money_cash" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvAccount"
                     android:layout_width="200dp"
-                    android:layout_height="124dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_height="125dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/acc_border"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"

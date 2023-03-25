@@ -38,15 +38,6 @@
                     android:paddingLeft="20dp"
                     android:textSize="24sp" />
 
-                <ImageView
-                    android:id="@+id/listPopUp"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="showPoppup"
-                    android:padding="10dp"
-                    android:src="@drawable/list"
-                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
         </LinearLayout>
 

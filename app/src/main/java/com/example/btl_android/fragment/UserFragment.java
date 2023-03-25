@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.example.btl_android.EditUserActivity;
 import com.example.btl_android.LoginActivity;
 import com.example.btl_android.R;
+import com.example.btl_android.TransactionDetail;
 import com.example.btl_android.objectClass.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -80,13 +82,25 @@ public class UserFragment extends Fragment {
         logoutImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
+
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Are you sure?")
+                        .setMessage("Do you want to log out?")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            logout();
+                            dialog.dismiss();
+                        })
+                        .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                        .show();
             }
         });
-
         return view;
+    }
+
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
     }
 
 }
