@@ -23,6 +23,7 @@ public class Recycle_Account {
     private Context mcontext;
     private AccountAdapter accountAdapter;
 
+    // Firebase adapter <- Recycle_Account (setconfig())
     public void setConfig(RecyclerView recyclerView, Context context, List<Account> accounts, List<String> keys){
         mcontext = context;
         accountAdapter = new AccountAdapter(accounts, keys);
@@ -30,10 +31,11 @@ public class Recycle_Account {
         recyclerView.setAdapter(accountAdapter);
         accountAdapter.notifyDataSetChanged();
     }
+
+    // AccountItemView
     class AccountItemView extends RecyclerView.ViewHolder{
         private TextView tName;
         private TextView tMoney;
-
         private String key;
 
         public AccountItemView(ViewGroup parent) {

@@ -168,7 +168,7 @@
                         android:id="@+id/income"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:layout_marginStart="18dp"
+                        android:layout_marginStart="20dp"
                         android:background="@drawable/income_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -245,10 +245,10 @@
                         android:id="@+id/cate4"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
                         android:background="@drawable/cate_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/cate6"
+                        app:layout_constraintEnd_toStartOf="@+id/opt3"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TableRow
@@ -283,11 +283,10 @@
                         android:id="@+id/opt3"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_marginEnd="20dp"
                         android:background="@drawable/cate_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.375"
-                        app:layout_constraintStart_toEndOf="@+id/cate4"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TableRow
@@ -333,7 +332,7 @@
                         android:id="@+id/opt1"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="20dp"
                         android:background="@drawable/cate_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -407,10 +406,10 @@
                         android:id="@+id/cate3"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
                         android:background="@drawable/cate_bg"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/cate2"
+                        app:layout_constraintEnd_toStartOf="@+id/cateMore"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TableRow
@@ -445,13 +444,10 @@
                         android:id="@+id/cateMore"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="18dp"
+                        android:layout_marginEnd="20dp"
                         android:backgroundTint="@color/purple_200"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.466"
-                        app:layout_constraintStart_toEndOf="@+id/cate3"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TableRow

@@ -32,7 +32,6 @@ public class AddAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Account account = new Account();
-                //account.setId(EditId.getText().toString());
                 account.setAccount_name(accName.getText().toString());
                 account.setMoney(accMoney.getText().toString());
                 new FirebaseHelper().addData(account, new FirebaseHelper.DataStatus() {

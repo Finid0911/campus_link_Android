@@ -267,7 +267,7 @@ public class TransactionActivity extends AppCompatActivity {
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this,LoginActivity.CHANNEL_ID)
-                        .setSmallIcon(R.drawable.school)
+                        .setSmallIcon(HomeFragment.resourceId)
                         .setLargeIcon(bitmap)
                         .setSound(uri)
                         .setColor(getResources().getColor(R.color.pastel_red))

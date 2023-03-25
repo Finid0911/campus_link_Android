@@ -108,10 +108,6 @@ public class LoginActivity extends AppCompatActivity {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name,importance);
             channel.setDescription(description);
 
-
-
-            //config channel_2
-
             CharSequence name_2 = getString(R.string.channel_name_2);
             String description_2 = getString(R.string.channel_description_2);
             int importance_2 = NotificationManager.IMPORTANCE_HIGH;
